@@ -1,0 +1,9 @@
+<% layout("./layouts.eta") %>
+
+<div id = "main">
+<p>
+ <span style = "margin:0 auto">Hello you, welcome to the technology highway!</span>
+</p>
+
+
+</div>

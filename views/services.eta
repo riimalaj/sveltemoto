@@ -1,0 +1,12 @@
+<% layout("./layouts.eta") %>
+
+<div style = "margin:0 auto" id = "services">
+
+
+ <span> Hello Sir, here are services what we found.</span>
+    <p>
+    <li><%=it.data%></li>
+</p>
+
+
+</div>
