@@ -1,0 +1,21 @@
+
+<% layout("./layouts/layout.eta") %>
+
+<h3>Korit</h3>
+
+<ul>
+<% it.collections.forEach((c)) => { %>
+<li>
+    <a href="/targets/<%=c.id%>">
+    <%=c.name%>
+    </a>
+</li>
+<% } %>
+</ul>
+
+<form action = "/addTarget" method = "POST">
+    <label for "target"> </label>
+    <input type = "text" name = "target">
+    <input type = "submit" value = "Lisää kori">
+</form>
+

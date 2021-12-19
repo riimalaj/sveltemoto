@@ -2,7 +2,8 @@
 
 <div id = "main">
 <p>
- <span style = "margin:0 auto">Hello you, welcome to the technology highway!</span>
+ <span style = "margin:0 auto">Welcome to the technology highway!</span>
+<%=it.hello%>
 </p>
 
 
