@@ -1,7 +1,7 @@
 import { Pool } from "../deps.js";
 
 
-const connectionPool = new Pool({
+const client = new Pool({
   hostname: "abul.db.elephantsql.com",
   database: "lelmphiv",
   user: "lelmphiv",
@@ -16,7 +16,7 @@ const executeQuery = async (query, ...args) => {
   console.log("executeQuery: " + query + ", args:" + args[0])
 
   try {
-    client = await connectionPool.connect();
+    client = await client.connect();
     const result = await client.queryObject(query, ...args);
     if (result.rows) {
       console.log(result.rows);
@@ -37,4 +37,4 @@ const executeQuery = async (query, ...args) => {
   return response;
 };
 
-export { executeQuery };
+export { executeQuery, client };

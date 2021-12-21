@@ -7,35 +7,16 @@
 <link href = "./main.css" type="text/css" rel = "stylesheet">
 <style>
     body{
-    margin-left: 40%;
-    margin-top: 20%;
+      margin-left: 40%;
+      margin-top: 5%;
     }
 </style>
 </head>
 
   <body>
 
-  <%~ it.body %>
+   <%~ it.body %>
 
-
-
-  <span><%it%></span>
-    <h3 style = "margin:0 auto"> Lahjalista 2.0</h3>
-
-    <form action = "/ideas" method = "post">
-        <label for "idea">Idea</label><p>
-          <textarea cols = "60" rows = "4" name = "idea">Suklaa rasia ja kirja</textarea>        
-          <p><p>
-        <label for "esittaja">Esittäjä</label><p>
-          <input type = "text" name = "esittaja" value="Anybody">
-        <p><p>
-        <input type = "submit" value = "Tallenna">
-    </form>
-  <p>
-
-<form method = "post">
-  <input type = "submit" value = "DELETE ALL">
-</form>  
-
+  
   </body>
 </html>

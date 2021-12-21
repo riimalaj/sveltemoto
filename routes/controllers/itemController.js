@@ -5,7 +5,7 @@ import { renderFile } from "../../deps.js";
 
 
 const showMain = async ({ response }) => {
-    response.body = await renderFile('../views/layouts.eta', {
+    response.body = await renderFile('../views/start.eta', {
         hello : "Hello"
     });    
 };
@@ -15,7 +15,7 @@ const addIdea = async({request, response}) => {
     console.log("Idean lisäys");
     const body = request.body();    
     const formData = await body.value;
-    const idea = formData.get("idea").trim();
+    const idea = formData.get("toive").trim();
     const esittaja = formData.get("esittaja").trim();
     var ideaStatus = Boolean(true);
     var orderStatus = Boolean(false);
@@ -34,7 +34,8 @@ const getIdeas = async({response}) => {
 const getOrders = async({response}) => {
     response.body = await renderFile("../views/orders.eta",{
     ordered: itemServices.fetchOrders(),
-    });
+    });    
+    response.redirect("/ordered/");
 };
 
 const getDelivered = async({response}) => {

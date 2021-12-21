@@ -1,5 +1,7 @@
-import {Client}  from "https://deno.land/x/postgres@v0.13.0/mod.ts";
 
+import {client} from "../database/db.js";
+
+/*
 export const client = new Client({
     hostname: "abul.db.elephantsql.com",
     database: "lelmphiv",
@@ -7,11 +9,11 @@ export const client = new Client({
     password: "HC2rLb4pLhUVhu3GszaBb0GfPPIkIhKz",
     port: 5432,
   });
-
+*/
 const addIdea = async(idea, esittaja, ideaStatus, orderStatus, deliveredStatus) => {
     console.log('Syötetään lista tauluun -> ' +  idea + ", " + esittaja + ",ideaStatus-> " + ideaStatus, " ,orderStatus->" + orderStatus + ", deliveredStatus->" + deliveredStatus);
     await client.connect();
-    await client.queryArray('INSERT INTO lista (toive, esittaja, ideaStatus, orderStatus, deliveredStatus) VALUES($1, $2, $3, $4, $5)', idea, esittaja, ideaStatus, orderStatus, deliveredStatus);
+    await client.queryArray('INSERT INTO lista (toive, esittaja, ideastatus, orderstatus, deliveredstatus) VALUES($1, $2, $3, $4, $5)', idea, esittaja, ideaStatus, orderStatus, deliveredStatus);
     await client.end();
     await fetchIdeas();
 }

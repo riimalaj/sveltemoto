@@ -1,0 +1,19 @@
+<% layout("./layouts.eta") %>
+
+<span><%it%></span>
+    <h3 style = "margin:0 auto"> Lahjalista 2.0</h3>
+
+    <form action = "/ideas" method = "post">
+        <label for="toive">Idea</label><p>
+          <textarea cols = "60" rows = "4" name = "toive">Suklaa rasia ja kirja</textarea>        
+          <p><p>
+        <label for="esittaja">Esittäjä</label><p>
+          <input type = "text" name = "esittaja" value="Anybody">
+        <p><p>
+        <input type = "submit" value = "Tallenna">
+    </form>
+  <p>
+
+<form method = "post">
+  <input type = "submit" value = "DELETE ALL">
+</form>  
