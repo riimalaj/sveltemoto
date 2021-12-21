@@ -31,17 +31,18 @@ const getIdeas = async({response}) => {
     });
 };
 
-const getOrders = async({response}) => {
+const getOrders = async({response}) => {    
     response.body = await renderFile("../views/orders.eta",{
     ordered: itemServices.fetchOrders(),
     });    
-    response.redirect("/ordered/");
+    //response.redirect("/ordered");
 };
 
 const getDelivered = async({response}) => {
     response.body = await renderFile("../views/delivered.eta",{
     delivered: itemServices.fetchDelivered(),
     });
+    console.log(response.body);
 };
 
 const doDelete = async () => {

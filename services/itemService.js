@@ -28,9 +28,9 @@ const fetchIdeas = async () => {
 }
 
 const changeOrderService = async() => {
-    console.log("Updating table status values");
+    console.log("Starting to update status values");
     await client.connect();
-    await client.queryArray("UPDATE ista SET ideaStatus = false, orderStatus = true, deliveredStatus = false");        
+    await client.queryArray("UPDATE lista SET ideastatus = false, orderstatus = true, deliveredstatus = false");        
     await client.end();
     console.log("Fields updated");    
 }
@@ -38,25 +38,27 @@ const changeOrderService = async() => {
 const changeDeliveredService = async() => {
     console.log("Updating table status values");
     await client.connect();
-    await client.queryArray("UPDATE ista SET ideaStatus = false, orderStatus = false, deliveredStatus = true");        
+    await client.queryArray("UPDATE lista SET ideastatus = false, orderstatus = false, deliveredstatus = true");        
     await client.end();
     console.log("Fields updated");    
 }
 
 const fetchOrders = async () => {
-    console.log("Updating table status values");
-    changeOrderService();
+    console.log("itemServices, fetchOrders");
+    await changeOrderService();
     await client.connect();
-    const res = await client.queryArray('SELECT * from lista WHERE orderStatus = true');
+    console.log("connected");
+    const res = await client.queryArray('SELECT * from lista WHERE orderstatus = true');
     await client.end();
-    console.log("Order list following -> " + res.rows);
+    console.log("itemService, fetchOrders. Order list following -> " + res.rows);
     return res.rows;
 }
 
 const fetchDelivered = async () => {
     console.log("Hankittujen haku");
-    changeDeliveredService();
+    await changeDeliveredService();
     await client.connect();
+    console.log("connected");
     const res = await client.queryArray('SELECT * from lista WHERE deliveredStatus = true');
     await client.end();
     console.log("Deliver list following -> " + res.rows);

@@ -1,5 +1,6 @@
 <% layout("./layouts.eta") %>
 
+console.log("orders.eta");
 <h3>Ordered</h3>
 
 <ul>
