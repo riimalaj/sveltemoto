@@ -5,7 +5,7 @@
 <ul>
     <% it.delivered.forEach((d) =>{ %>
     <li>
-        <%= d[1] %> esittäjä <%= d[2] %>
+        <%= d[1] %> esittäjä, <%= d[2] %>
     <li>
     <%})%>
 <ul>

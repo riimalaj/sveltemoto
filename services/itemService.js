@@ -26,23 +26,23 @@ const fetchIdeas = async () => {
 }
 
 const changeOrderService = async() => {
-    console.log("Switching boolean field values to indicate true for the orderedStatus");
+    console.log("Updating table status values");
     await client.connect();
     await client.queryArray("UPDATE ista SET ideaStatus = false, orderStatus = true, deliveredStatus = false");        
     await client.end();
-    console.log("Boolean update done");    
+    console.log("Fields updated");    
 }
 
 const changeDeliveredService = async() => {
-    console.log("Switching boolean field values to indicate true for the delivered ones");
+    console.log("Updating table status values");
     await client.connect();
     await client.queryArray("UPDATE ista SET ideaStatus = false, orderStatus = false, deliveredStatus = true");        
     await client.end();
-    console.log("Boolean update done");    
+    console.log("Fields updated");    
 }
 
 const fetchOrders = async () => {
-    console.log("Hankittujen haku");
+    console.log("Updating table status values");
     changeOrderService();
     await client.connect();
     const res = await client.queryArray('SELECT * from lista WHERE orderStatus = true');

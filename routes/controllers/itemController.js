@@ -32,18 +32,18 @@ const getIdeas = async({response}) => {
 };
 
 const getOrders = async({response}) => {
-    Response.body = await renderFile("../views/orders.eta",{
-    ordered : itemServices.fetchOrders(),
+    response.body = await renderFile("../views/orders.eta",{
+    ordered: itemServices.fetchOrders(),
     });
 };
 
 const getDelivered = async({response}) => {
-    Response.body = await renderFile("../views/delivered.eta",{
-    delivered : itemServices.fetchDelivered(),
+    response.body = await renderFile("../views/delivered.eta",{
+    delivered: itemServices.fetchDelivered(),
     });
 };
 
-const doDelete = async ({response}) => {
+const doDelete = async () => {
     await itemServices.deleteAll();
     console.log("All data erased");
     return new Response(await renderFile('index.eta', "Data erased"));
