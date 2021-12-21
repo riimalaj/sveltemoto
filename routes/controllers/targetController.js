@@ -7,15 +7,14 @@ const addTarget = async ({ request, response }) => {
     const formData = await body.value;
     const t = formData.get('kori').trim();
     console.log(t);
-    await services.addBasket(t);
-    response.redirect('/targets/');
+    await services.addBasket(t);    
 };
 
-const getTarget = async ({ request, response }) => {
-    response.body = await renderFile('../../views/collections.eta', {
-        collections: await services.getTargets(),
+const getTarget = async ({ response }) => {    
+    response.body = await renderFile('../views/index.eta', {
+        collections : await services.getKorit(),
     });
-    console.log('Target controller -> ' + response.body);
+  
 };
 
 export { addTarget, getTarget };

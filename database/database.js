@@ -13,6 +13,7 @@ const connectionPool = new Pool({
 const executeQuery = async (query, ...args) => {
   const response = {};
   let client;
+  console.log("executeQuery: " + query + ", args:" + args[0])
 
   try {
     client = await connectionPool.connect();
@@ -32,6 +33,7 @@ const executeQuery = async (query, ...args) => {
     }
   }
 
+  
   return response;
 };
 

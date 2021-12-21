@@ -1,10 +1,10 @@
-<% layout("./layouts/layout.eta") %>
+<% layout("./layouts.eta") %>
 
 <html>
 <head>
 <link rel="icon" href="data:;base64,=">
 <title>Lahjalistat statukseineen</title>
-<!--<link href = "./main.css" type="text/css" rel = "stylesheet">-->
+<link href = "./main.css" type="text/css" rel = "stylesheet">
 <style>
     body{
     margin-left: 40%;
@@ -40,7 +40,7 @@
 
 <p>
 
-<%= it.resp %>
+<%= it.collections %>
 
 <ul>
 

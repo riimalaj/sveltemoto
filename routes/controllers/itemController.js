@@ -13,8 +13,9 @@ const addItem = async({request, params, response}) => {
     const body = request.body();
     const formData = await body.value;
     const idea = formData.get("toive").trim();
-    console.log(idea);
-    await itemServices.addIdea(idea);
+    const esittaja = formData.get("esittaja").trim();
+    console.log(idea +  ", " + esittaja);
+    await itemServices.addIdea(params.idea, params.esittaja);
     response.redirect("/ideas/");
 };
 

@@ -1,38 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel = "stylesheet" href= "./views/main.css">
-    <title>Training App</title>
-    <meta charset="UTF-8">
-  </head>
+
+<head>
+<link rel="icon" href="data:;base64,=">
+<title>Real Time Lahjalista</title>
+<link href = "./main.css" type="text/css" rel = "stylesheet">
+<style>
+    body{
+    margin-left: 40%;
+    margin-top: 20%;
+    }
+</style>
+</head>
+
   <body>
+      
+
     <h3 style = "margin:0 auto"> Lahjalista 2.0</h3>
 
-    <form action = "/add" method = "post">
-        <input type = "text" name = "kori">
-        <input type = "submit" value = "Luo kori">
+    <form action = "/idea" method = "post">
+        <label for "idea">Idea</label><p>
+          <textarea cols = "60" rows = "4" name = "idea">Suklaa rasia ja kirja</textarea>        
+          <p><p>
+        <label for "esittaja">Esittäjä</label><p>
+          <input type = "text" name = "esittaja" value="Anybody">
+        <p><p>
+        <input type = "submit" value = "Idea">
     </form>
-
-  <form action = "/getTargets" method = "get">
-        <input type = "submit" value = "Hae kori">
-    </form>
-
-
-    <form action = "/services" method = "get">
-        <input type = "submit" value = "Palvelut">
-    </form>
-
-   <form action = "/response" method = "get">
-        <input type = "submit" value = "Hae serveriltä response">
-    </form>
-
-    <form action = "/push" method = "post">
-        <input type = "submit" value = "Do">
-    </form>
-
-
-    <%~ it.body %>
-
+  <p>
+  <%~ it.body %>
 
   </body>
 </html>

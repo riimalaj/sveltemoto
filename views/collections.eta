@@ -1,21 +1,21 @@
+<html>
+</head>
+<link rel = "stylesheet" href="./main.css">
+</head>
+<% layout("./layouts.eta") %>
 
-<% layout("./layouts/layout.eta") %>
-
+<p>
 <h3>Korit</h3>
+<%= it.collections %>
+<p>
+<!--
+<ul>    
 
-<ul>
-<% it.collections.forEach((c)) => { %>
-<li>
-    <a href="/targets/<%=c.id%>">
-    <%=c.name%>
-    </a>
-</li>
-<% } %>
+    <%= it.collections.forEach((c) {%>
+    <li>
+        <%c.id%> <%c.name%>        
+    </li> 
+    <%});%>
+    
 </ul>
-
-<form action = "/addTarget" method = "POST">
-    <label for "target"> </label>
-    <input type = "text" name = "target">
-    <input type = "submit" value = "Lisää kori">
-</form>
-
+-->
