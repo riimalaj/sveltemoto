@@ -22,31 +22,31 @@ const addIdea = async({request, response}) => {
     var deliveredStatus = Boolean(false);
     console.log('itemController -> ' + idea + ", " + esittaja + ",ideaStatus-> " + ideaStatus, " ,orderStatus->" + orderStatus + ", deliveredStatus->" + deliveredStatus);
     await itemServices.addIdea(idea, esittaja, ideaStatus, orderStatus, deliveredStatus);
+    response.redirect('/ideas');
 };
 
 const getIdeas = async({response}) => {
     response.body = await renderFile("../views/ideas.eta", {
         ideas: await itemServices.fetchIdeas(),
     });
-    response.redirect("/ideas");
 };
 
-//While fetching orders, changing boolean field flags
 const getOrders = async({response}) => {
     Response.body = await renderFile("../views/orders.eta",{
     ordered : itemServices.fetchOrders(),
     });
-    response.redirect("/ordered/");
 };
 
-//While fetching orders, changing boolean field flags
 const getDelivered = async({response}) => {
     Response.body = await renderFile("../views/delivered.eta",{
     delivered : itemServices.fetchDelivered(),
     });
-    response.redirect("/delivered/");
 };
 
+const doDelete = async ({response}) => {
+    await itemServices.deleteAll();
+    console.log("All data erased");
+    return new Response(await renderFile('index.eta', "Data erased"));
+}
 
-
-export {showMain, getIdeas, getOrders, getDelivered, addIdea};
+export {showMain, getIdeas, getOrders, getDelivered, addIdea, doDelete};

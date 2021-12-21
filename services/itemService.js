@@ -16,7 +16,6 @@ const addIdea = async(idea, esittaja, ideaStatus, orderStatus, deliveredStatus) 
     await fetchIdeas();
 }
 
-
 const fetchIdeas = async () => {
     console.log("ideoiden haku");
     await client.connect();
@@ -62,5 +61,10 @@ const fetchDelivered = async () => {
     return res.rows;
 }
 
+const deleteAll = async() => {
+    await client.connect();
+    await client.queryArray('DELETE FROM lista');
+    await client.end();
+}
 
-export {addIdea, fetchIdeas, fetchOrders, fetchDelivered, changeDeliveredService, changeOrderService};
+export {addIdea, fetchIdeas, fetchOrders, fetchDelivered, changeDeliveredService, changeOrderService, deleteAll};

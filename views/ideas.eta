@@ -5,8 +5,7 @@
 <h3>Ideas</h3>
 <ul>
 <% it.ideas.forEach((i) =>{%>
-    <li>
-    
+    <li>    
         <%=i%>
         <form action = "/ordered" method = "get">
             <input type = "submit" value = "Hankittu" />

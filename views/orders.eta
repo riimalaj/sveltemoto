@@ -1,13 +1,13 @@
 <% layout("./layouts.eta") %>
 
-<% it.ordered.forEach((i){%>
+<% it.ordered.forEach((o){%>
 
 <ul>
     <li>
-        <%i%>
+        <%o%>
         <form action = "/delivered" method = "get">
             <input type = "submit" value = "Hankittu">
         </form>
     <li>
-<%})%>
 <ul>
+<%})%>
