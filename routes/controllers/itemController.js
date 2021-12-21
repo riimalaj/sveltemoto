@@ -3,40 +3,50 @@ import * as itemServices from "../../services/itemService.js";
 import { renderFile } from "../../deps.js";
 
 
+
 const showMain = async ({ response }) => {
-    response.body = await rf('../views/index.eta');
-    hello: 'Welcome';
+    response.body = await renderFile('../views/layouts.eta', {
+        hello : "Hello"
+    });    
 };
 
-const addItem = async({request, params, response}) => {
+
+const addIdea = async({request, response}) => {
     console.log("Idean lisäys");
-    const body = request.body();
+    const body = request.body();    
     const formData = await body.value;
-    const idea = formData.get("toive").trim();
+    const idea = formData.get("idea").trim();
     const esittaja = formData.get("esittaja").trim();
-    console.log(idea +  ", " + esittaja);
-    await itemServices.addIdea(params.idea, params.esittaja);
-    response.redirect("/ideas/");
+    var ideaStatus = Boolean(true);
+    var orderStatus = Boolean(false);
+    var deliveredStatus = Boolean(false);
+    console.log('itemController -> ' + idea + ", " + esittaja + ",ideaStatus-> " + ideaStatus, " ,orderStatus->" + orderStatus + ", deliveredStatus->" + deliveredStatus);
+    await itemServices.addIdea(idea, esittaja, ideaStatus, orderStatus, deliveredStatus);
 };
 
-const getIdeas = async() => {
-    response.body = await renderFile("../views/index.eta", {
-        ideat: await itemServices.getNewIdea(),
-      });
-
-    response.redirect("/ideaa/");
+const getIdeas = async({response}) => {
+    response.body = await renderFile("../views/ideas.eta", {
+        ideas: await itemServices.fetchIdeas(),
+    });
+    response.redirect("/ideas");
 };
 
-const getOrders = async() => {
-    Response.body = "Tilatut";
+//While fetching orders, changing boolean field flags
+const getOrders = async({response}) => {
+    Response.body = await renderFile("../views/orders.eta",{
+    ordered : itemServices.fetchOrders(),
+    });
     response.redirect("/ordered/");
 };
 
-const getDelivered = async() => {
-    Response.body = "Toimitetut";
+//While fetching orders, changing boolean field flags
+const getDelivered = async({response}) => {
+    Response.body = await renderFile("../views/delivered.eta",{
+    delivered : itemServices.fetchDelivered(),
+    });
     response.redirect("/delivered/");
 };
 
 
 
-export {showMain, getIdeas, getOrders, getDelivered, addItem};
+export {showMain, getIdeas, getOrders, getDelivered, addIdea};

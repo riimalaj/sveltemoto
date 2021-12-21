@@ -11,7 +11,7 @@ const addTarget = async ({ request, response }) => {
 };
 
 const getTarget = async ({ response }) => {    
-    response.body = await renderFile('../views/index.eta', {
+    response.body = await renderFile('../views/collections.eta', {
         collections : await services.getKorit(),
     });
   

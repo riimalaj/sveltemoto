@@ -1,11 +1,11 @@
 <% layout("./layouts.eta") %>
 
-<% it.ideas.forEach((i){%>
+<% it.delivered.forEach((i){%>
 
 <ul>
     <li>
-        <%i.idea%> <<%i.esittaja%>
-        <form action = "orders" method = "get">
+        <%i%>
+        <form action = "/delivered" method = "get">
             <input type = "submit" value = "Hankittu">
         </form>
     <li>

@@ -3,8 +3,12 @@ CREATE TABLE collections (
 	name VARCHAR(50) UNIQUE
 );
 
-CREATE TABLE todos (
+CREATE TABLE lista (
 	id SERIAL PRIMARY KEY,
-	task VARCHAR(50) UNIQUE,
-	collection_id INTEGER REFERENCES collections(id)
+	toive VARCHAR(150) UNIQUE,
+	esittaja VARCHAR(50) UNIQUE,
+	ideaStatus BOOLEAN,
+	orderStatus BOOLEAN,
+	deliveredStatus BOOLEAN,
+	lista_id INTEGER REFERENCES lista(id)
 );
