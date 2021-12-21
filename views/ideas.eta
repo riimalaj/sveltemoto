@@ -1,18 +1,15 @@
 <% layout("./layouts.eta") %>
-<html>
-<body>
 
 <h3>Ideas</h3>
+
 <ul>
 <% it.ideas.forEach((i) =>{%>
+    
     <li>    
-        <%=i%>
+        <%= i[1] %>  esittäjä <%= i[2] %>
         <form action = "/ordered" method = "get">
             <input type = "submit" value = "Hankittu" />
         </form>    
     <li>
 <%})%>
 <ul>
-
-</body>
-</html>

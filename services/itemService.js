@@ -21,7 +21,7 @@ const fetchIdeas = async () => {
     await client.connect();
     const res = await client.queryArray('SELECT * from lista WHERE ideaStatus = true');
     await client.end();
-    console.log("service retuning -> " + res.rows);
+    console.log("Idea list following -> " + res.rows);
     return res.rows;
 }
 
@@ -47,7 +47,7 @@ const fetchOrders = async () => {
     await client.connect();
     const res = await client.queryArray('SELECT * from lista WHERE orderStatus = true');
     await client.end();
-    console.log("service retuning -> " + res.rows);
+    console.log("Order list following -> " + res.rows);
     return res.rows;
 }
 
@@ -57,7 +57,7 @@ const fetchDelivered = async () => {
     await client.connect();
     const res = await client.queryArray('SELECT * from lista WHERE deliveredStatus = true');
     await client.end();
-    console.log("service retuning -> " + res.rows);
+    console.log("Deliver list following -> " + res.rows);
     return res.rows;
 }
 

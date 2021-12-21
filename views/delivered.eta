@@ -1,11 +1,12 @@
 <% layout("./layouts.eta") %>
 
-<% it.delivered.forEach((d){%>
+<h3>Delivered</h3>
 
 <ul>
+    <% it.delivered.forEach((d) =>{ %>
     <li>
-        <%d%>
+        <%= d[1] %> esittäjä <%= d[2] %>
     <li>
+    <%})%>
 <ul>
 
-<%})%>
