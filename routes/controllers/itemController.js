@@ -36,24 +36,15 @@ const getOrders = async({params, response}) => {
     });
 };
 
-const getDelivered = async({params, response}) => {
-    const ret = await itemServices.fetchDelivered(params.id);
-    console.log("getDeliverd returns " + ret.rows);
-    
-    if (ret.rows > 0){
+const getDelivered = async({params, response}) => {    
         console.log("itemController, getDelivered -> params.id = " + params.id);
         response.body = await renderFile("../views/delivered.eta",{
-        deliveries: itemServices.fetchDelivered(params.id),
-        });    
-    }
-    else{
-        response.body = await renderFile("../views/delivered.eta",{
-        deliveries: "Onglelmia tulosten saamisessa",
-        });
-    }       
+        deliveries: await itemServices.fetchDelivered(params.id),
+        });            
 };
 
 const doDelete = async () => {
+    console.log("itemController, doDelete");
     await itemServices.deleteAll();
     console.log("All data erased");
     return new Response(await renderFile('index.eta', "Data erased"));

@@ -48,8 +48,13 @@ const fetchDelivered = async (id) => {
     console.log("Toimitettujen haku");
     await changeDeliveredService(id);
     await client.connect();
-    const ret = await client.queryArray('SELECT * from lista WHERE deliveredStatus = true');
+    const ret = await client.queryArray('SELECT * from lista WHERE deliveredstatus = true');
+    console.log("itemService returned");
+    for (const r of ret.rows){
+        console.log(r);
+    }
     await client.end();
+    
     return ret.rows;
 }
 
