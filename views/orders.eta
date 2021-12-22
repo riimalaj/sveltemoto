@@ -1,16 +1,17 @@
 <% layout("./layouts.eta") %>
 
 
-<h3>Ordered</h3>
+<h3>Hankitut</h3>
 
 <ul>
 <% it.ordered.forEach((o) => { %>
-    <li>
-        id : <%= o[0] %>, <%= o[1] %> ,esittäjä <%= o[2] %>
+    
+    <li> 
+        id : <%= o[0] %>, <%= o[1] %> ,esittäjä <%= o[2] %>        
         <form method = "GET" action = "/delivered/<%= o[0] %>">
-            <input type = "submit" value = "Toimitettu">
+            <input type = "submit" value = "Toimitettu"/>
         </form>
-    <li>
+    </li>
 <% }); %>
 <ul>
 

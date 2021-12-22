@@ -5,9 +5,7 @@ import { renderFile } from "../../deps.js";
 
 
 const showMain = async ({ response }) => {
-    response.body = await renderFile('../views/start.eta', {
-        hello : "Hello"
-    });    
+    response.body = await renderFile('../views/start.eta');    
 };
 
 
@@ -36,11 +34,10 @@ const getOrders = async({params, response}) => {
     response.body = await renderFile("../views/orders.eta", {
         ordered: await itemServices.fetchOrders(params.id),
     });
-
-    //response.redirect("/ordered");
 };
 
 const getDelivered = async({params, response}) => {
+    console.log("itemController, getDelivered -> params.id = " + params.id);
     response.body = await renderFile("../views/delivered.eta",{
     delivered: itemServices.fetchDelivered(params.id),
     });    

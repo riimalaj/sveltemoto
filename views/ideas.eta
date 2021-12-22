@@ -1,6 +1,6 @@
 <% layout("./layouts.eta") %>
 
-<h3>Ideas</h3>
+<h3>Ideat</h3>
 
 <ul>
 <% it.ideas.forEach((i) =>{%>
@@ -10,6 +10,6 @@
         <form method = "GET" action = "/ordered/<%= i[0] %>">
             <input type = "submit" value = "Hankittu" />
         </form>    
-    <li>
-<%})%>
+    </li>
+<%}); %>
 <ul>

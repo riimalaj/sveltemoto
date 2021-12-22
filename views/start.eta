@@ -15,5 +15,5 @@
   <p>
 
 <form method = "post">
-  <input type = "submit" value = "DELETE ALL">
+  <input type = "submit" value = "Joulu peruttu">
 </form>  

@@ -4,19 +4,27 @@
 <meta charset="utf-8">
 <link rel="icon" href="data:;base64,=">
 <title>Real Time Lahjalista</title>
-<link href = "./main.css" type="text/css" rel = "stylesheet">
 <style>
-    body{
-      margin-left: 40%;
+    .box{
+      margin-left: 30%;
       margin-top: 5%;
+      margin-bottom: 5%;
+      margin-right: 30%;
+      background-color: lightblue;
+      border: 5px solid;
+      padding: 5px;
+      box-shadow: 5px 10px;
     }
 </style>
 </head>
-
-  <body>
-
-   <%~ it.body %>
-
-  
-  </body>
+<body>
+<div class = "box">
+  <ul>
+    <%~ it.body %>
+  </ul>
+</div>
+</body>
 </html>
+
+
+
