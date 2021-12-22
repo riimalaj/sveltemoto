@@ -1,0 +1,6 @@
+<% layout("./layouts.eta") %>
+
+<h3>Joulun tilanne</h3>
+
+
+

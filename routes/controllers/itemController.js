@@ -43,11 +43,13 @@ const getDelivered = async({params, response}) => {
         });            
 };
 
-const doDelete = async () => {
+const doDelete = async (response) => {
     console.log("itemController, doDelete");
     await itemServices.deleteAll();
     console.log("All data erased");
-    return new Response(await renderFile('index.eta', "Data erased"));
+    response.body = await renderFile('index.eta', {
+        status: "Data tuhottu",
+    });
 }
 
 export {showMain, getIdeas, getOrders, getDelivered, addIdea, doDelete};

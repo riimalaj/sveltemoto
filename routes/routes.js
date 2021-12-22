@@ -14,6 +14,6 @@ router.get("/ordered/:id", item.getOrders);
              
 router.get('/delivered/:id', item.getDelivered);
 
-router.get('/delete', item.doDelete);
+router.post('/delete', item.doDelete);
 
 export default router.routes();
