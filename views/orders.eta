@@ -1,14 +1,14 @@
 <% layout("./layouts.eta") %>
 
-console.log("orders.eta");
+
 <h3>Ordered</h3>
 
 <ul>
 <% it.ordered.forEach((o) => { %>
     <li>
-        <%= o[1] %> ,esittäjä <%= o[2] %>
-        <form action = "/delivered" method = "get">
-            <input type = "submit" value = "Hankittu">
+        id : <%= o[0] %>, <%= o[1] %> ,esittäjä <%= o[2] %>
+        <form method = "GET" action = "/delivered/<%= o[0] %>">
+            <input type = "submit" value = "Toimitettu">
         </form>
     <li>
 <% }); %>

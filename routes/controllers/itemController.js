@@ -31,18 +31,19 @@ const getIdeas = async({response}) => {
     });
 };
 
-const getOrders = async({response}) => {    
-    response.body = await renderFile("../views/orders.eta",{
-    ordered: itemServices.fetchOrders(),
-    });    
+const getOrders = async({params, response}) => {        
+    console.log("itemController, getOrders -> params.id = " + params.id);
+    response.body = await renderFile("../views/orders.eta", {
+        ordered: await itemServices.fetchOrders(params.id),
+    });
+
     //response.redirect("/ordered");
 };
 
-const getDelivered = async({response}) => {
+const getDelivered = async({params, response}) => {
     response.body = await renderFile("../views/delivered.eta",{
-    delivered: itemServices.fetchDelivered(),
-    });
-    console.log(response.body);
+    delivered: itemServices.fetchDelivered(params.id),
+    });    
 };
 
 const doDelete = async () => {

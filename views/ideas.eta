@@ -6,8 +6,8 @@
 <% it.ideas.forEach((i) =>{%>
     
     <li>    
-        <%= i[1] %>  ,esittäjä <%= i[2] %>
-        <form action = "/ordered" method = "get">
+        id : <%= i[0] %> <%= i[1] %>  ,esittäjä <%= i[2] %>
+        <form method = "GET" action = "/ordered/<%= i[0] %>">
             <input type = "submit" value = "Hankittu" />
         </form>    
     <li>

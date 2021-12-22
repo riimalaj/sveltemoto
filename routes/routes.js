@@ -11,9 +11,9 @@ router.get('/', item.showMain);
 router.get('/ideas', item.getIdeas);
 router.post('/ideas', item.addIdea);
 
-router.get("/ordered", item.getOrders);
+router.get("/ordered/:id", item.getOrders);
 
-router.get('/delivered', item.getDelivered);
+router.get('/delivered:id', item.getDelivered);
 
 router.get('/delete', item.doDelete);
 

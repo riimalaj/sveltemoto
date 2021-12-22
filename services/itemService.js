@@ -1,15 +1,6 @@
 
 import {client} from "../database/db.js";
 
-/*
-export const client = new Client({
-    hostname: "abul.db.elephantsql.com",
-    database: "lelmphiv",
-    user: "lelmphiv",
-    password: "HC2rLb4pLhUVhu3GszaBb0GfPPIkIhKz",
-    port: 5432,
-  });
-*/
 const addIdea = async(idea, esittaja, ideaStatus, orderStatus, deliveredStatus) => {
     console.log('Syötetään lista tauluun -> ' +  idea + ", " + esittaja + ",ideaStatus-> " + ideaStatus, " ,orderStatus->" + orderStatus + ", deliveredStatus->" + deliveredStatus);
     await client.connect();
@@ -27,41 +18,39 @@ const fetchIdeas = async () => {
     return res.rows;
 }
 
-const changeOrderService = async() => {
-    console.log("Starting to update status values");
+const changeOrderService = async(id) => {
+    console.log("Starting to update ordered status values");
     await client.connect();
-    await client.queryArray("UPDATE lista SET ideastatus = false, orderstatus = true, deliveredstatus = false");        
+    await client.queryArray("UPDATE lista SET ideastatus = false, orderstatus = true, deliveredstatus = false WHERE id = $1", id);        
     await client.end();
     console.log("Fields updated");    
 }
 
-const changeDeliveredService = async() => {
-    console.log("Updating table status values");
+const changeDeliveredService = async(id) => {
+    console.log("Updating table delivered status value");
     await client.connect();
-    await client.queryArray("UPDATE lista SET ideastatus = false, orderstatus = false, deliveredstatus = true");        
+    await client.queryArray("UPDATE lista SET ideastatus = false, orderstatus = false, deliveredstatus = true WHERE id = ", id);        
     await client.end();
     console.log("Fields updated");    
 }
 
-const fetchOrders = async () => {
+const fetchOrders = async (id) => {
     console.log("itemServices, fetchOrders");
-    await changeOrderService();
+    await changeOrderService(id);
     await client.connect();
     console.log("connected");
     const res = await client.queryArray('SELECT * from lista WHERE orderstatus = true');
     await client.end();
-    console.log("itemService, fetchOrders. Order list following -> " + res.rows);
     return res.rows;
 }
 
-const fetchDelivered = async () => {
+const fetchDelivered = async (id) => {
     console.log("Hankittujen haku");
-    await changeDeliveredService();
+    await changeDeliveredService(id);
     await client.connect();
     console.log("connected");
     const res = await client.queryArray('SELECT * from lista WHERE deliveredStatus = true');
     await client.end();
-    console.log("Deliver list following -> " + res.rows);
     return res.rows;
 }
 
