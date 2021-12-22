@@ -12,7 +12,7 @@ router.post('/ideas', item.addIdea);
 
 router.get("/ordered/:id", item.getOrders);
              
-router.get('/delivered:id', item.getDelivered);
+router.get('/delivered/:id', item.getDelivered);
 
 router.get('/delete', item.doDelete);
 

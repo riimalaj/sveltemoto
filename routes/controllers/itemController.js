@@ -37,10 +37,20 @@ const getOrders = async({params, response}) => {
 };
 
 const getDelivered = async({params, response}) => {
-    console.log("itemController, getDelivered -> params.id = " + params.id);
-    response.body = await renderFile("../views/delivered.eta",{
-    delivered: itemServices.fetchDelivered(params.id),
-    });    
+    const ret = await itemServices.fetchDelivered(params.id);
+    console.log("getDeliverd returns " + ret.rows);
+    
+    if (ret.rows > 0){
+        console.log("itemController, getDelivered -> params.id = " + params.id);
+        response.body = await renderFile("../views/delivered.eta",{
+        deliveries: itemServices.fetchDelivered(params.id),
+        });    
+    }
+    else{
+        response.body = await renderFile("../views/delivered.eta",{
+        deliveries: "Onglelmia tulosten saamisessa",
+        });
+    }       
 };
 
 const doDelete = async () => {

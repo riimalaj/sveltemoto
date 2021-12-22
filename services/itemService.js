@@ -48,9 +48,9 @@ const fetchDelivered = async (id) => {
     console.log("Toimitettujen haku");
     await changeDeliveredService(id);
     await client.connect();
-    const res = await client.queryArray('SELECT * from lista WHERE deliveredStatus = true');
+    const ret = await client.queryArray('SELECT * from lista WHERE deliveredStatus = true');
     await client.end();
-    return res.rows;
+    return ret.rows;
 }
 
 const deleteAll = async() => {

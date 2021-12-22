@@ -1,12 +1,17 @@
 <% layout("./layouts.eta") %>
 
-<h3>Delivered, process completed</h3>
+<h3>Toimitetut</h3>
 
 <ul>
-    <% it.delivered.forEach((d) =>{ %>
-    <li>
-        <%= d[1] %> ,esittäjä <%= d[2] %>
-    </li>
-    <%})%>
+<% console.log("it.deliveries = " + it.deliveries) %>
+<% if (it.deliveries === "") { %>
+    console.log("Vaikeuksia itemeiden tulostamisessa.");
+<% } else { %>    
+    <% it.deliveries.forEach((d) => { %>
+    <%= d[1] %> ,esittäjä <%= d[2] %>
+<% }) %>
+
+<% } %>
+
 <ul>
 
