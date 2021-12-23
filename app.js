@@ -17,23 +17,13 @@ const app = new Application({
     serverConstructor: HttpServerStd,
 });
 
+
+let port = 7777;
+if (Deno.args.length > 0) {
+  const lastArgument = Deno.args[Deno.args.length - 1];
+  port = Number(lastArgument);
+}
+
 app.use(routes);
 
 export {app};
-
-/*
-const handleRequest = async(request) =>{
-    const url = new URL(request.url);
-
-if (url.pathname === "/services" && request.method === "GET") {
-    return new Response(`Redirecting to /services.`, {
-      status: 303,
-      headers: {
-        "Location": "/services",
-      },
-    });
-}
-};
-
-listenAndServe(":2000", handleRequest);
-*/

@@ -7,3 +7,4 @@ export const client = new Client({
     password: "HC2rLb4pLhUVhu3GszaBb0GfPPIkIhKz",
     port: 5432,
   });
+

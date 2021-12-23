@@ -3,14 +3,14 @@
 <span><%it%></span>
     <h3 style = "margin:0 auto"> Lahjalista 2.0</h3>
 
-    <form action = "/ideas" method = "post">
+    <form action = "/ideas" method = "post" name ="startForm">
         <label for="toive">Idea</label><p>
           <textarea cols = "35" rows = "4" name = "toive">Suklaa rasia ja kirja</textarea>        
           <p><p>
-        <label for="esittaja">Esittäjä</label><p>
+        <label for="esittaja"><b>Kenelle</b></label><p>
           <input type = "text" name = "esittaja" value="Anybody">
         <p><p>
-        <input type = "submit" value = "Tallenna">
+        <input type = "submit" value = "Lisää">
     </form>
   <p>
 

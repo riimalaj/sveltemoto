@@ -10,7 +10,7 @@
     <% it.deliveries.forEach((d) => { %>
     <table style = "border-style:solid">
         <tr>
-            <td><%= d[1] %></td><td>esittäjä <%= d[2] %></td>
+            <td><%= d[1] %></td><td><b>Kenelle</b> <%= d[2] %></td>
         </tr>
     </table>    
 <% }) %>
