@@ -26,7 +26,7 @@ if (Deno.args.length > 0) {
 
 app.use(routes);
 
-app.listen({port:7777});
+app.listen(`{$PORT}`);
 
 
 /*
