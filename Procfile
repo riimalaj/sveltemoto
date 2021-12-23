@@ -1,1 +1,1 @@
-web: deno run --allow-all app.js $PORT
+web: deno run --allow-all app.js PORT=8001
