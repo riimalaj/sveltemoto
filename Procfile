@@ -1,1 +1,1 @@
-web: deno run --allow-all=":$PORT" app.js
+web: deno run --allow-all app.js $PORT
