@@ -26,7 +26,8 @@ if (Deno.args.length > 0) {
 
 app.use(routes);
 
-export {app};
+app.listen({`:${port}`);
+//export {app};
 
 /*
 const handleRequest = async(request) =>{
