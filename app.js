@@ -17,7 +17,7 @@ const app = new Application({
     serverConstructor: HttpServerStd,
 });
 
-let port = 7777;
+let port = 36163;
 if (Deno.args.length > 0) {
   const lastArgument = Deno.args[Deno.args.length - 1];
   port = Number(lastArgument);
@@ -26,7 +26,7 @@ if (Deno.args.length > 0) {
 
 app.use(routes);
 
-app.listen({port:7777});
+app.listen({port:36163});
 
 
 /*
