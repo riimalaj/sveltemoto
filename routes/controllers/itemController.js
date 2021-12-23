@@ -1,4 +1,4 @@
-
+import {Context} from 'https://deno.land/x/oak@v9.0.1/mod.ts';
 import * as itemServices from "../../services/itemService.js";
 import { renderFile } from "../../deps.js";
 
@@ -43,13 +43,13 @@ const getDelivered = async({params, response}) => {
         });            
 };
 
-const doDelete = async (response) => {
+const doDelete = async ({response}) => {
     console.log("itemController, doDelete");
-    await itemServices.deleteAll();
-    console.log("All data erased");
-    response.body = await renderFile('index.eta', {
-        status: "Data tuhottu",
+    response.body = await renderFile('../views/index.eta', {
+        deleteResp : await itemServices.deleteAll(),
     });
+    
+    
 }
 
 export {showMain, getIdeas, getOrders, getDelivered, addIdea, doDelete};

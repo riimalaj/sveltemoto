@@ -59,9 +59,22 @@ const fetchDelivered = async (id) => {
 }
 
 const deleteAll = async() => {
+    console.log("itemService, deleteAll funkkari");
     await client.connect();
     await client.queryArray('DELETE FROM lista');
     await client.end();
+    
+    const msg = "Kaikki tuhottu";
+    let data = new Response("Kaikki Tuhottu", {
+        status : 200,
+        statusText : "Joulu deletoitu",
+        headers: {
+            "content-type": "text/html",
+          },
+    });
+    
+    return data.statusText;
+    
 }
 
 export {addIdea, fetchIdeas, fetchOrders, fetchDelivered, changeDeliveredService, changeOrderService, deleteAll};

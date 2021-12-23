@@ -1,6 +1,9 @@
 <% layout("./layouts.eta") %>
 
-<h3>Joulun tilanne</h3>
+<h3>Joulu tuhottu</h3>
+<% console.log("index.eta (response from the itemController -> " + it.deleteResp.statusText) %>
 
+
+<h3><% it.deleteResp.statusText %></h3>
 
 
