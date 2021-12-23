@@ -26,22 +26,4 @@ if (Deno.args.length > 0) {
 
 app.use(routes);
 
-app.listen(`{$PORT}`);
-
-
-/*
-const handleRequest = async(request) =>{
-    const url = new URL(request.url);
-
-if (url.pathname === "/services" && request.method === "GET") {
-    return new Response(`Redirecting to /services.`, {
-      status: 303,
-      headers: {
-        "Location": "/services",
-      },
-    });
-}
-};
-
-listenAndServe(":2000", handleRequest);
-*/
+app.listen(`:{$PORT}`);
