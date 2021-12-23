@@ -26,7 +26,7 @@ if (Deno.args.length > 0) {
 
 app.use(routes);
 
-app.listen({`${port}`);
+app.listen({`port:${port}`);
 //export {app};
 
 /*
