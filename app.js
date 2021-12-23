@@ -1,3 +1,5 @@
+import { listenAndServe } from 'https://deno.land/std@0.113.0/http/server.ts';
+
 import {
     Application,
     HttpServerStd,
@@ -26,7 +28,7 @@ if (Deno.args.length > 0) {
 
 app.use(routes);
 
-app.listen({{port:7777});
+app.listen({port:7777});
 //export {app};
 
 /*
