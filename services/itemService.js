@@ -1,9 +1,7 @@
 import {client} from "../database/db.js";
 
-<<<<<<< HEAD
-=======
 //const databaseUrl = Deno.env.get("DATABASE_URL");
->>>>>>> a4462b17f10377099e31abc2ce4881a8f9c337e4
+
 
 const addIdea = async(idea, esittaja, ideaStatus, orderStatus, deliveredStatus) => {
     console.log('Syötetään lista tauluun -> ' +  idea + ", " + esittaja + ",ideaStatus-> " + ideaStatus, " ,orderStatus->" + orderStatus + ", deliveredStatus->" + deliveredStatus);
