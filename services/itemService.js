@@ -4,7 +4,8 @@ import { ensureDir } from "https://deno.land/std@0.54.0/fs/ensure_dir.ts";
 
 var logs = [];
 var error = [];
-//const databaseUrl = Deno.env.get("DATABASE_URL");
+
+const databaseUrl = Deno.env.get("DATABASE_URL");
 
 const addIdea = async (idea, esittaja, ideaStatus, orderStatus, deliveredStatus) => {
     try {
