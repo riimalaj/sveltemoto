@@ -124,10 +124,10 @@ const deleteAll = async () => {
 }
 
 ensureDir("./errors")
-.then(() => Deno.writeTextFile("./errors/appi_errors_" + Date.now() + ".log", error));
+.then(() => Deno.writeTextFile("./errors/appi_errors_" + Date() + ".log", error));
 
 ensureDir("./logs")
-.then(() => Deno.writeTextFile("./logs/log_" + Date.now() + ".log", logs));
+.then(() => Deno.writeTextFile("./logs/log_" + Date() + ".log", logs));
 
 
 export { addIdea, fetchIdeas, fetchOrders, fetchDelivered, changeDeliveredService, changeOrderService, deleteAll };
