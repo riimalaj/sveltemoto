@@ -1,5 +1,5 @@
 import {Context} from 'https://deno.land/x/oak@v9.0.1/mod.ts';
-import * as itemServices from "../../services/itemServiceTryCatch.js";
+import * as itemServices from "../../services/itemService.js";
 import { renderFile } from "../../deps.js";
 
 //No try catch
