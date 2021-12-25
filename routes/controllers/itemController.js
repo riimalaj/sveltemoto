@@ -75,7 +75,7 @@ const doDelete = async ({ response }) => {
 const today = Date.now();
 
 ensureDir("./errors")
-.then(() => Deno.writeTextFile("./errors/appi_errors_" + today + ".log", error));
+.then(() => Deno.writeTextFile("./errors/appi_errors_" + Date() + ".log", error));
 
 
 export { showMain, getIdeas, getOrders, getDelivered, addIdea, doDelete };
