@@ -68,6 +68,6 @@ export {showMain, getIdeas, getOrders, getDelivered, addIdea, doDelete};
 const today = Date.now();
 
 ensureDir("./logs")
-.then(async () => await Deno.writeTextFile("./logs/appi_logs_" + Date() + ".log", logs));
+.then(async () => await Deno.writeTextFile("./logs/appi_logs_" + Date() + ".log", log));
 
 
