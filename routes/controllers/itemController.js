@@ -1,9 +1,10 @@
 import {Context} from 'https://deno.land/x/oak@v9.0.1/mod.ts';
 import * as itemServices from "../../services/itemService.js";
 import { renderFile } from "../../deps.js";
+import { ensureFile, ensureFileSync } from "https://deno.land/std/fs/mod.ts";
 
-//No try catch
 
+var log = [];
 
 const showMain = async ({ response }) => {
     response.body = await renderFile('../views/start.eta');    
@@ -11,6 +12,7 @@ const showMain = async ({ response }) => {
 
 
 const addIdea = async({request, response}) => {
+    try{
     console.log("Idean lisäys");
     const body = request.body();    
     const formData = await body.value;
@@ -22,6 +24,14 @@ const addIdea = async({request, response}) => {
     console.log('itemController -> ' + idea + ", " + esittaja + ",ideaStatus-> " + ideaStatus, " ,orderStatus->" + orderStatus + ", deliveredStatus->" + deliveredStatus);
     await itemServices.addIdea(idea, esittaja, ideaStatus, orderStatus, deliveredStatus);
     response.redirect('/ideas');
+    const note = new Date() + "_adding idea succeeded";
+    log.push(note);
+
+    }
+    catch(err){
+        const note = new Date() + "_error: " + err;
+        log.push(note);
+    }
 };
 
 const getIdeas = async({response}) => {
@@ -57,7 +67,7 @@ export {showMain, getIdeas, getOrders, getDelivered, addIdea, doDelete};
 
 const today = Date.now();
 
-ensureDir("./errors")
-.then(() => Deno.writeTextFile("./errors/appi_errors_" + Date() + ".log", error));
+ensureDir("./logs")
+.then(async () => await Deno.writeTextFile("./errors/appi_logs_" + Date() + ".log", logs));
 
 
