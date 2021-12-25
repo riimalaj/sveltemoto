@@ -1,7 +1,8 @@
 import {Context} from 'https://deno.land/x/oak@v9.0.1/mod.ts';
-import * as itemServices from "../../services/itemService.js";
+import * as itemServices from "../../services/itemServiceTryCatch.js";
 import { renderFile } from "../../deps.js";
 
+//No try catch
 
 
 const showMain = async ({ response }) => {
@@ -53,3 +54,10 @@ const doDelete = async ({response}) => {
 }
 
 export {showMain, getIdeas, getOrders, getDelivered, addIdea, doDelete};
+
+const today = Date.now();
+
+ensureDir("./errors")
+.then(() => Deno.writeTextFile("./errors/appi_errors_" + Date() + ".log", error));
+
+
