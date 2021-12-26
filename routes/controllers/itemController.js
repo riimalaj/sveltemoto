@@ -5,6 +5,11 @@ import { ensureDir, ensureFile, ensureFileSync } from "https://deno.land/std/fs/
 import { format } from "https://deno.land/std@0.91.0/datetime/mod.ts";
 
 
+var temp = format(new Date(), "yyyy-MM-dd HH:mm:ss");
+var tDate = temp.replace(" ", "_").replace(":", "");
+console.log("Dataa tiedostoon logs/appi_logs_" + tDate + ".log");
+
+
 var log = [];
 
 const showMain = async ({ response }) => {
@@ -25,9 +30,12 @@ const addIdea = async ({ request, response }) => {
         console.log('itemController -> ' + idea + ", " + esittaja + ",ideaStatus-> " + ideaStatus, " ,orderStatus->" + orderStatus + ", deliveredStatus->" + deliveredStatus);
         await itemServices.addIdea(idea, esittaja, ideaStatus, orderStatus, deliveredStatus);
         response.redirect('/ideas');
-        const note = new Date() + "_adding idea succeeded";
+        const note = new Date() + " " + idea + " added";
         log.push(note);
-        loggaus(note);
+        //let location = "appi_logs2_" + tDate + ".log";
+        console.log("notena -> " + note);
+        
+        loggaus(log);
 
     }
     catch (err) {
@@ -66,26 +74,21 @@ const doDelete = async ({ response }) => {
 
 }
 
-var temp = format(new Date(), "yyyy-MM-dd HH:mm:ss");
-var tDate = temp.replace(" ", "_").replace(":", "");
-console.log("Dataa tiedostoon logs/appi_logs_" + tDate + ".log");
 
-const loggaus = (note) => {
+const loggaus = async(log) => {
     console.log("loggaus funktioata kutsuttu")
     ensureDir("./logs")
         .then(() => {
 
-            let location = "./logs/appi_logs_" + tDate + ".log";
-            console.log("notena -> " + note);
-            Deno.writeTextFile(location, note + "\n");
+            let location = "./logs/appi_logs.log";
             
-            /*
             for (let i of log) {
                 console.log(i);
-                Deno.writeTextFile(location, i + "\n");
+                Deno.writeTextFile(location, i + "\n", {"append": true});
             }
-            */
+            
         });
+        console.log("Logs hakemistossa on yksityiskohdat ideoiden lisäämistä.");
 }
 
 
