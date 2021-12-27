@@ -15,5 +15,5 @@
   <p>
 
 <form method = "post" action = "/tuhoa">
-  <input type = "submit" value = "Joulu peruttu">
+  <input type = "submit" value = "Tuhoa ideat">
 </form>  
