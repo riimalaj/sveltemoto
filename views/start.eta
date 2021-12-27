@@ -1,10 +1,13 @@
 <% layout("./layouts.eta") %>
 
+
+
 <span><%it%></span>
-    <h3 style = "margin:0 auto"> Lahjalista 2.0</h3>
+    <h3 style = "margin:0 auto; color:red">Tervetuloa vierailija osoitteesta <%=  it.ip %>, luo lahjalistasi tästä.</h3>
 
     <form action = "/ideas" method = "post" name ="startForm">
-        <label for="toive">Idea</label><p>
+    <p>
+        <label for="toive"><b>Idea</b></label><p>
           <textarea cols = "35" rows = "4" name = "toive">Suklaa rasia ja kirja</textarea>        
           <p><p>
         <label for="esittaja"><b>Kenelle</b></label><p>

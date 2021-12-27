@@ -3,6 +3,7 @@ import * as itemServices from "../../services/itemService.js";
 import { renderFile } from "../../deps.js";
 import { ensureDir, ensureFile, ensureFileSync } from "https://deno.land/std/fs/mod.ts";
 import { format } from "https://deno.land/std@0.91.0/datetime/mod.ts";
+import { getIP } from "https://deno.land/x/get_ip/mod.ts";
 
 
 var temp = format(new Date(), "yyyy-MM-dd HH:mm:ss");
@@ -10,10 +11,13 @@ var tDate = temp.replace(" ", "_").replace(":", "");
 console.log("Dataa tiedostoon logs/appi_logs_" + tDate + ".log");
 
 
+
 var log = [];
 
 const showMain = async ({ response }) => {
-    response.body = await renderFile('../views/start.eta');
+    response.body = await renderFile('../views/start.eta',{
+    ip: await getIP({ipv6: true}),
+    });
 };
 
 
