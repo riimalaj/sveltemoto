@@ -3,7 +3,9 @@
 
 
 <span><%it%></span>
-    <h3 style = "margin:0 auto; color:red">Tervetuloa vierailija osoitteesta <%=  it.ip %>, luo lahjalistasi tästä.</h3>
+    <h3 style = "margin:0 auto; color:red">Tervetuloa vierailija osoitteesta <%=  it.ip %>,<br> 
+    luo lahjalistasi tästä.<p></h3>
+    (osoitetta ei talleteta).
 
     <form action = "/ideas" method = "post" name ="startForm">
     <p>
