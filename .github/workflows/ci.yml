@@ -1,0 +1,21 @@
+name: Run tests
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Lataa lahdekoodit kayttoon
+        uses: actions/checkout@v2
+
+      - name: Asenna Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: "v1.16.3"
+
+      - name: Aja testit
+        run: deno test --allow-all test/testLogs.js
