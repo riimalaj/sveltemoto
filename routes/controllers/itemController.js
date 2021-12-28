@@ -30,9 +30,9 @@ const addIdea = async ({ request, response }) => {
         console.log('itemController -> ' + idea + ", " + esittaja + ",ideaStatus-> " + ideaStatus, " ,orderStatus->" + orderStatus + ", deliveredStatus->" + deliveredStatus);
         await itemServices.addIdea(idea, esittaja, ideaStatus, orderStatus, deliveredStatus);
         response.redirect('/ideas');
-        const note = new Date() + " " + idea + " added";
+        const note = new Date() + " " + idea + " added.";
         log.push(note);
-        //let location = "appi_logs2_" + tDate + ".log";
+      
         console.log("notena -> " + note);
         
         loggaus(log);
@@ -70,8 +70,16 @@ const doDelete = async ({ response }) => {
     response.body = await renderFile('../views/index.eta', {
         deleteResp: await itemServices.deleteAll(),
     });
+}
 
-
+const showLogFile = async ({response}) => {
+    console.log("itemController, showLogFile")
+    const data = await Deno.readTextFile("logs/appi_logs.log")
+    console.log(data)
+    response.body = await renderFile('../views/logReader.eta',{
+        content : data,
+        newLine : "\n",
+    });    
 }
 
 
@@ -84,7 +92,7 @@ const loggaus = async(log) => {
             
             for (let i of log) {
                 console.log(i);
-                Deno.writeTextFile(location, i + "\n", {"append": true});
+                Deno.writeTextFile(location, i + "\n\n", {"append": true});
             }
             
         });
@@ -94,7 +102,7 @@ const loggaus = async(log) => {
 
 
 
-export { showMain, getIdeas, getOrders, getDelivered, addIdea, doDelete };
+export { showMain, getIdeas, getOrders, getDelivered, addIdea, doDelete, showLogFile };
 
 
 

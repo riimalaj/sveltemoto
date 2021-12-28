@@ -16,4 +16,7 @@ router.get('/delivered/:id', item.getDelivered);
 
 router.post('/tuhoa', item.doDelete);
 
+router.get('/logs', item.showLogFile);
+
+
 export default router.routes();
