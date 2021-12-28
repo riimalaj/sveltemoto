@@ -4,6 +4,9 @@ import { renderFile } from "../../deps.js";
 import { ensureDir, ensureFile, ensureFileSync } from "https://deno.land/std/fs/mod.ts";
 import { format } from "https://deno.land/std@0.91.0/datetime/mod.ts";
 import { getIP } from "https://deno.land/x/get_ip/mod.ts";
+import { readLines } from "https://deno.land/std/io/mod.ts";
+import * as path from "https://deno.land/std/path/mod.ts";
+import { readline } from "https://deno.land/x/readline@v1.1.0/mod.ts";
 
 
 var temp = format(new Date(), "yyyy-MM-dd HH:mm:ss");
@@ -15,8 +18,8 @@ console.log("Dataa tiedostoon logs/appi_logs_" + tDate + ".log");
 var log = [];
 
 const showMain = async ({ response }) => {
-    response.body = await renderFile('../views/start.eta',{
-    ip: await getIP({ipv6: true}),
+    response.body = await renderFile('../views/start.eta', {
+        ip: await getIP({ ipv6: true }),
     });
 };
 
@@ -36,9 +39,9 @@ const addIdea = async ({ request, response }) => {
         response.redirect('/ideas');
         const note = new Date() + " " + idea + " added.";
         log.push(note);
-      
+
         console.log("notena -> " + note);
-        
+
         loggaus(log);
 
     }
@@ -76,31 +79,43 @@ const doDelete = async ({ response }) => {
     });
 }
 
-const showLogFile = async ({response}) => {
+const showLogFile = async ({ response }) => {
     console.log("itemController, showLogFile")
     const data = await Deno.readTextFile("logs/appi_logs.log")
     console.log(data)
-    response.body = await renderFile('../views/logReader.eta',{
-        content : data,
-        newLine : "\n",
-    });    
+    response.body = await renderFile('../views/logReader.eta', {
+        content: data,
+        newLine: "\n",
+    });
+}
+
+//https://deno.land/x/readline@v1.1.0
+const showLogFileNotWorking = async ({ response }) => {
+    console.log("showLogFile")
+    const f = await Deno.open("logs/appi_logs.log");
+    for await (const line of readline(f)) {
+        response.body = await renderFile('../views/logReader.eta', {
+            content: `${new TextDecoder().decode(line)}`,
+        });
+    }
+    f.close();
 }
 
 
-const loggaus = async(log) => {
+const loggaus = async (log) => {
     console.log("loggaus funktioata kutsuttu")
     ensureDir("./logs")
         .then(() => {
 
             let location = "./logs/appi_logs.log";
-            
+
             for (let i of log) {
                 console.log(i);
-                Deno.writeTextFile(location, i + "\n\n", {"append": true});
+                Deno.writeTextFile(location, i + "\n\n", { "append": true });
             }
-            
+
         });
-        console.log("Logs hakemistossa on yksityiskohdat ideoiden lisäämistä.");
+    console.log("Logs hakemistossa on yksityiskohdat ideoiden lisäämistä.");
 }
 
 

@@ -28,8 +28,4 @@ app.use(routes);
 
 app.listen(`:${port}`);
 
-<<<<<<< HEAD
 export {app};
-=======
-export {app}
->>>>>>> 50f94590584b679f1a464f961e8b57e27b12d3a0
