@@ -14,7 +14,7 @@ const huoltoKantaan = async(tyyppi, huolto, hetki, sijainti, huomiot) => {
 const huolot = async () => {
     console.log("Huoltojen haku");
     await client.connect();
-    const res = await client.queryArray('SELECT * from motoService');
+    const res = await client.queryArray('SELECT * from motoService ORDER BY created_at ASC');
     await client.end();
     console.log("Huolot -> " + res.rows);
     return res.rows;

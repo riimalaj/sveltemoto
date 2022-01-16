@@ -34,7 +34,7 @@ const lisaaHuolto = async ({ request, response }) => {
         var sijainti = formData.get("sijainti");
         var huomiot = formData.get("huomiot");
         await itemServices.huoltoKantaan(tyyppi, huolto, hetki, sijainti, huomiot);
-        //response.redirect('/huolot');
+        response.redirect('/huolot');
         const note = new Date() + " huolto lisätty.";
         log.push(note);
         console.log("notena -> " + note);
