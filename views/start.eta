@@ -13,7 +13,7 @@
         <p><p>
 
         <label for="huolto"><b>Huolto</b></label><p>
-          <textarea cols = "35" rows = "4" name = "huolto">Pikahuolto</textarea>        
+          <textarea cols = "35" rows = "4" name = "huolto"></textarea>        
           <p><p>
 
         <label for="hetki"><b>KM / tunti (numero)</b></label><p>
@@ -25,7 +25,7 @@
         <p><p>
 
         <label for="huomiot"><b>Huomiot</b></label><p>
-          <textarea cols = "35" rows = "4" name = "huomiot">24mx.fi :sta tilattu kaksi ilmanputsaria ja seisontatuki. Sain myös pyörän käyntiin pariksi sekunniksi sadan polkaisun jälkeen.</textarea>        
+          <textarea cols = "35" rows = "4" name = "huomiot"></textarea>        
           <p><p>
 
 
@@ -37,11 +37,6 @@
 
 <form method = "get" action = "/huolot">
   <input type = "submit" value = "Näytä huolot">
-</form>  
-
-<p><p>
-<form method = "get" action = "/logs">
-  <input type = "submit" value = "Näytä logit">
 </form>  
 
 
