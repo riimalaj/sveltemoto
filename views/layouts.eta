@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="icon" href="data:;base64,=">
-<title>Real Time Lahjalista</title>
+<title>Moton Huolto Rekisteri</title>
 <style>
     .box{
       margin-left: 10%;
