@@ -18,32 +18,27 @@ console.log("Dataa tiedostoon logs/appi_logs_" + tDate + ".log");
 var log = [];
 
 const showMain = async ({ response }) => {
-    response.body = await renderFile('../views/start.eta', {
-        ip: await getIP({ ipv6: true }),
-    });
-};
+    console.log("showMain called")
+    response.body = await renderFile('../views/start.eta');
+}
 
 
-const addIdea = async ({ request, response }) => {
+const lisaaHuolto = async ({ request, response }) => {
     try {
-        console.log("Idean lisäys");
+        console.log("Huolon lisäys");
         const body = request.body();
         const formData = await body.value;
-        const idea = formData.get("toive").trim();
-        const esittaja = formData.get("esittaja").trim();
-        var ideaStatus = Boolean(true);
-        var orderStatus = Boolean(false);
-        var deliveredStatus = Boolean(false);
-        console.log('itemController -> ' + idea + ", " + esittaja + ",ideaStatus-> " + ideaStatus, " ,orderStatus->" + orderStatus + ", deliveredStatus->" + deliveredStatus);
-        await itemServices.addIdea(idea, esittaja, ideaStatus, orderStatus, deliveredStatus);
-        response.redirect('/ideas');
-        const note = new Date() + " " + idea + " added.";
+        const tyyppi = formData.get("mototyyppi").trim();
+        const huolto = formData.get("huolto").trim();
+        var hetki = formData.get("hetki");
+        var sijainti = formData.get("sijainti");
+        var huomiot = formData.get("huomiot");
+        await itemServices.huoltoKantaan(tyyppi, huolto, hetki, sijainti, huomiot);
+        //response.redirect('/huolot');
+        const note = new Date() + " huolto lisätty.";
         log.push(note);
-
         console.log("notena -> " + note);
-
         loggaus(log);
-
     }
     catch (err) {
         const note = new Date() + "_error: " + err;
@@ -52,32 +47,12 @@ const addIdea = async ({ request, response }) => {
     }
 };
 
-const getIdeas = async ({ response }) => {
-    response.body = await renderFile("../views/ideas.eta", {
-        ideas: await itemServices.fetchIdeas(),
+const haeHuolot = async ({ response }) => {
+    response.body = await renderFile("../views/huolot.eta", {
+        huolot: await itemServices.huolot(),        
     });
 };
 
-const getOrders = async ({ params, response }) => {
-    console.log("itemController, getOrders -> params.id = " + params.id);
-    response.body = await renderFile("../views/orders.eta", {
-        ordered: await itemServices.fetchOrders(params.id),
-    });
-};
-
-const getDelivered = async ({ params, response }) => {
-    console.log("itemController, getDelivered -> params.id = " + params.id);
-    response.body = await renderFile("../views/delivered.eta", {
-        deliveries: await itemServices.fetchDelivered(params.id),
-    });
-};
-
-const doDelete = async ({ response }) => {
-    console.log("itemController, doDelete");
-    response.body = await renderFile('../views/index.eta', {
-        deleteResp: await itemServices.deleteAll(),
-    });
-}
 
 const showLogFile = async ({ response }) => {
     console.log("itemController, showLogFile")
@@ -108,20 +83,21 @@ const loggaus = async (log) => {
         .then(() => {
 
             let location = "./logs/appi_logs.log";
-
+            Deno.writeTextFile(location, log + "\n\n", { "append": true });
+            /*
             for (let i of log) {
                 console.log(i);
                 Deno.writeTextFile(location, i + "\n\n", { "append": true });
             }
+            */
 
-        });
-    console.log("Logs hakemistossa on yksityiskohdat ideoiden lisäämistä.");
+        });    
 }
 
 
 
 
-export { showMain, getIdeas, getOrders, getDelivered, addIdea, doDelete, showLogFile };
+export { showMain, haeHuolot, lisaaHuolto, showLogFile };
 
 
 

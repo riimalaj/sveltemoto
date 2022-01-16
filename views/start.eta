@@ -2,28 +2,46 @@
 
 
 
+
 <span><%it%></span>
-    <h3 style = "margin:0 auto"> Lahjalista 3.0</h3>
+    <h3 style = "margin:0 auto"> Moton Huolto Rekisteri</h3>
     <p>
 
-    <form action = "/ideas" method = "post" name ="startForm">
-        <label for="toive"><b>Idea</b></label><p>
-          <textarea cols = "35" rows = "4" name = "toive">Suklaa rasia ja kirja</textarea>        
-          <p><p>
-        <label for="esittaja"><b>Kenelle</b></label><p>
-          <input type = "text" name = "esittaja" value="Anybody">
+    <form action = "/huolot" method = "post" name ="startForm">
+        <label for="mototyyppi"><b>Moto</b></label><p>
+          <input type = "text" name = "mototyyppi" value="Kawasaki KX 250F (2008)">
         <p><p>
-        <input type = "submit" value = "Lisää idea">
+
+        <label for="huolto"><b>Huolto</b></label><p>
+          <textarea cols = "35" rows = "4" name = "huolto">Pikahuolto</textarea>        
+          <p><p>
+
+        <label for="hetki"><b>KM / tunti (numero)</b></label><p>
+          <input type = "number" name = "hetki" value = "0">
+        <p><p>
+
+        <label for="sijaint"><b>Sijainti</b></label><p>
+          <input type = "text" name = "sijainti" value = "Tuusula">
+        <p><p>
+
+        <label for="huomiot"><b>Huomiot</b></label><p>
+          <textarea cols = "35" rows = "4" name = "huomiot">24mx.fi :sta tilattu kaksi ilmanputsaria ja seisontatuki. Sain myös pyörän käyntiin pariksi sekunniksi sadan polkaisun jälkeen.</textarea>        
+          <p><p>
+
+
+        <input type = "submit" value = "Kantaan">
+
     </form>
   <p>
+<p>
 
-<form method = "post" action = "/tuhoa">
-  <input type = "submit" value = "Tuhoa ideat">
+<form method = "get" action = "/huolot">
+  <input type = "submit" value = "Näytä huolot">
 </form>  
 
-<p>
 
 <form method = "get" action = "/logs">
   <input type = "submit" value = "Näytä logit">
 </form>  
+
 

@@ -6,15 +6,23 @@
 <title>Real Time Lahjalista</title>
 <style>
     .box{
-      margin-left: 20%;
+      margin-left: 10%;
       margin-top: 5%;
       margin-bottom: 5%;
-      margin-right: 20%;
+      margin-right: 10%;
       background-color: lightblue;
       border: 5px solid;
       padding: 5px;
       box-shadow: 5px 10px;
     }
+
+table, td {
+  border: 1px solid black;  
+  text-align:center;
+}
+th{
+    background-color: lightgray;
+}
 
 textarea{
   padding: 5px;
@@ -22,6 +30,7 @@ textarea{
 
 input{
   padding: 5px;
+  text-align: center;
 }
 
 </style>
