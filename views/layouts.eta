@@ -41,6 +41,11 @@ input{
         color: red;    
     }
 
+  h3{
+    font-size:80px
+    color: black;
+    text-align:center;
+  }
     input{
         width:50%;
         height:80px;        
@@ -56,7 +61,7 @@ input{
     #main{
     width:80%;
   }
-  
+
 </style>
 </head>
 <body>
