@@ -41,14 +41,14 @@ input{
     }
 
     input{
-        width:1000px;
-        height:100px;        
-        font-size:80px;    
+        width:50%;
+        height:80px;        
+        font-size:60px;    
     }
 
     label{
         width:600px;
-        height:100px;
+        height:80px;
         font-size:80px;
     }
 
