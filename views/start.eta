@@ -4,8 +4,7 @@
 
 
 <span><%it%></span>
-    <h3 style = "margin:0 auto"> Moton Huolto Rekisteri</h3>
-    <p>
+    
 
     <form action = "/huolot" method = "post" name ="startForm" class="formi">
         <label for="mototyyppi"><b>Moto</b></label><p>
