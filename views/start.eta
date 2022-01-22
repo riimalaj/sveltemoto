@@ -7,7 +7,7 @@
     <h3 style = "margin:0 auto"> Moton Huolto Rekisteri</h3>
     <p>
 
-    <form action = "/huolot" method = "post" name ="startForm">
+    <form action = "/huolot" method = "post" name ="startForm" class="formi">
         <label for="mototyyppi"><b>Moto</b></label><p>
           <input type = "text" name = "mototyyppi" value="Kawasaki KX 250F (2008)">
         <p><p>
