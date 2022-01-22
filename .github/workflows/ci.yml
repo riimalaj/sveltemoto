@@ -16,6 +16,3 @@ jobs:
         uses: denoland/setup-deno@v1
         with:
           deno-version: "v1.16.3"
-
-      - name: Aja testit
-        run: deno test --allow-all test/testLogs.js
