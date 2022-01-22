@@ -53,6 +53,28 @@ input{
     width:100%;
   }
 
+    #laheta{
+      border: solid, 1px;
+      border-color:black;
+      background-color: red;
+      color: black;
+      padding: 3px;
+      text-align: center;
+      display: inline-block;
+      font-size:30px;
+    }
+
+    #naytaHuolot{
+      border: solid, 1px;
+      border-color:black;
+      background-color: #4CAF50;
+      color: black;
+      padding: 3px;
+      text-align: center;
+      display: inline-block;
+      font-size:30px;
+    }
+
 
     label{
         width:600px;
