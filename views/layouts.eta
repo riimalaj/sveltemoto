@@ -26,11 +26,12 @@ th{
 
 textarea{
   padding: 5px;
+  text-align: left;
 }
 
 input{
   padding: 5px;
-  text-align: center;
+  text-align: left;
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2.625)  {
@@ -52,6 +53,8 @@ input{
         font-size:80px;
     }
 
+    textarea{
+    resize: vertical;
   }
 </style>
 </head>

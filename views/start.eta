@@ -16,7 +16,7 @@
           <textarea cols = "35" rows = "4" name = "huolto"></textarea>        
           <p><p>
 
-        <label for="hetki"><b>KM / tunti (numero)</b></label><p>
+        <label for="hetki"><b>KM / tunti</b></label><p>
           <input type = "number" name = "hetki" value = "0">
         <p><p>
 
