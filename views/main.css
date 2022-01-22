@@ -4,7 +4,7 @@ body{
 }
 
 
-@media only screen and (max-height: 694px) and (min-device-width: 320px) {
+@media only screen and (max-height: 914px) and (min-device-width: 412px) {
     form {
         width:100%;
         height: 100%;
