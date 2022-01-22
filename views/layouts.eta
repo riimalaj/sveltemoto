@@ -53,9 +53,10 @@ input{
         font-size:80px;
     }
 
-    textarea{
-    resize: vertical;
+    #main{
+    width:80%;
   }
+  
 </style>
 </head>
 <body>

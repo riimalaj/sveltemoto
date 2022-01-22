@@ -13,7 +13,7 @@
         <p><p>
 
         <label for="huolto"><b>Huolto</b></label><p>
-          <textarea cols = "35" rows = "4" name = "huolto"></textarea>        
+          <input type = "text" name = "huolto" / id = "maint">        
           <p><p>
 
         <label for="hetki"><b>KM / tunti</b></label><p>
