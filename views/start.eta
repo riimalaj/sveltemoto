@@ -23,7 +23,7 @@
         <p><p>
 
         <label for="huomiot"><b>Huomiot</b></label><p>
-          <input type = "text" name = "huomiot" id = "maint">
+          <input type = "text" name = "huomiot" id = "huomiot">
           <p><p>
 
         <input type = "submit" value = "Kantaan" id="laheta">

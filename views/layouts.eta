@@ -49,7 +49,8 @@ input{
         font-size:60px;    
     }
 
-    input#maint{
+    input#huomiot{
+    margin-bottom: 20px;
     width:90%;
   }
 
