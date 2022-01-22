@@ -47,15 +47,16 @@ input{
         font-size:60px;    
     }
 
+    input#maint{
+    width:100%;
+  }
+
+
     label{
         width:600px;
         height:80px;
         font-size:80px;
     }
-
-    #maint{
-    width:80%;
-  }
 
 </style>
 </head>
