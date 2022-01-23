@@ -34,15 +34,18 @@ const lisaaHuolto = async ({ request, response }) => {
         var sijainti = formData.get("sijainti");
         var huomiot = formData.get("huomiot");
         let huoltopvm = formData.get("hPVM");
-        console.log("huoltopvm ", huoltopvm)
+        console.log("huoltopvm " + huoltopvm);
         await itemServices.huoltoKantaan(tyyppi, huolto, hetki, sijainti, huomiot, huoltopvm);
         response.redirect('/huolot');
+        
         const note = new Date() + " huolto lisätty.";
         log.push(note);
         console.log("notena -> " + note);
-        loggaus(log);
+        loggaus(note);
+        
     }
     catch (err) {
+        console.log("Error when trying to input data from controller");
         const note = new Date() + "_error: " + err;
         log.push(note);
         loggaus();
@@ -79,13 +82,13 @@ const showLogFileNotWorking = async ({ response }) => {
 }
 
 
-const loggaus = async (log) => {
+const loggaus = async (note) => {
     console.log("loggaus funktioata kutsuttu")
     ensureDir("./logs")
         .then(() => {
 
             let location = "./logs/appi_logs.log";
-            Deno.writeTextFile(location, log + "\n\n", { "append": true });
+            Deno.writeTextFile(location, note + "\n\n", { "append": true });
             /*
             for (let i of log) {
                 console.log(i);

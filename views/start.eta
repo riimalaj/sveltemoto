@@ -11,7 +11,7 @@
         <p><p>
 
         <label for="huolto"><b>Huolto</b></label><p>
-          <input type = "text" name = "huolto">        
+          <input type = "text" name = "huolto" value = "Pikahuolto">        
           <p><p>
 
         <label for="hetki"><b>KM / tunti</b></label><p>
@@ -23,12 +23,12 @@
         <p><p>
 
         <label for="huomiot"><b>Huomiot</b></label><p>
-          <input type = "text" name = "huomiot" id = "huomiot">
+          <input type = "text" name = "huomiot" id = "huomiot" value ="-">
           <p><p>
 
           <label for="hPVM"><b>Date</b></label><p>
-          <input type = "date" name = "hPVM" id = "huoltoPVM" valueAsDate/>
-          <p><p>  
+          <input type = "date" name = "hPVM" id = "huoltoPVM">
+          <p><p>
 
         <input type = "submit" value = "Kantaan" id="laheta">
 
@@ -43,4 +43,4 @@
 
 <script>
 const event = new Date();
-document.getElementById('huoltoPVM').valueAsDate = event.toISOString();</script>
+document.getElementById('huoltoPVM').valueAsDate = event;</script>

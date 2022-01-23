@@ -4,10 +4,17 @@ import {client} from "../database/db.js";
 
 
 const huoltoKantaan = async(tyyppi, huolto, hetki, sijainti, huomiot, huoltopvm) => {
-    console.log('Syötetään huolto');
+    console.log('Syötetään huolto, itemservice');
+    console.log("tyyppi:", tyyppi);
+    console.log("huolto:", huolto);
+    console.log("hetki:", hetki);
+    console.log("sijainti:", sijainti);
+    console.log("huomiot:", huomiot);
+    console.log("huoltopvm:", huoltopvm);
     await client.connect();
     await client.queryArray('INSERT INTO motoService (moto, maint, moment, location, notes, maintdate) VALUES($1, $2, $3, $4, $5, $6)', tyyppi, huolto, hetki, sijainti, huomiot, huoltopvm);
     await client.end();
+    console.log('insert executed');
     await huolot();
 }
 
