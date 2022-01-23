@@ -9,13 +9,13 @@
 <table>
     <th>
         <tr>    
-            <th>Huoltokohde</th> <th>Huolto</th> <th>Km/tunti/ym</th> <th>Paikka</th> <th>Huomiot</th> <th>Kirjaus pvm</th><th>Huolto pvm</th>
+            <th>Huoltokohde</th> <th>Huolto</th><th>Paikka</th> <th>Huolto pvm</th><th>Huomiot</th>
         </tr>    
 
 <% it.huolot.forEach((i) =>{%>
     
     <tr>    
-        <td><%= i[1] %></td> <td><%= i[2] %></td> <td><%= i[3] %> </td> <td><%= i[4] %></td> <td><%= i[5] %></td> <td><%= i[6]%></td> <td><%= i[7]%></td>
+        <td><%= i[1] %></td> <td><%= i[2] %></td> <td><%= i[4] %></td> <td><%= i[7]%></td> <td><%= i[5] %></td>
     </tr>
 <%}); %>
 </table>
