@@ -1,7 +1,7 @@
 <% layout("./layouts.eta") %>
 
 <form action = "/" method = "get">
-    <input type = "submit" value = "takaisin">
+    <input type = "submit" value = "takaisin" id="back">
 </form> 
 
 <h3>Motojen</a> Huollot</h3>

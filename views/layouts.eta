@@ -18,7 +18,9 @@
 
 table, td {
   border: 1px solid black;  
-  text-align:center;
+  text-align:left;
+  background-color: #F1EBEA;
+  padding:3px;
 }
 th{
     background-color: lightgray;
@@ -48,6 +50,12 @@ input{
         height:80px;        
         font-size:60px;    
     }
+
+    input#huomiot{
+      width:40%;
+      font-weigth:bold;
+      font-size:26px;
+  }
 
     input#huomiot{
     margin-bottom: 20px;
