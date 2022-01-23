@@ -26,6 +26,10 @@
           <input type = "text" name = "huomiot" id = "huomiot">
           <p><p>
 
+          <label for="hPVM"><b>Date</b></label><p>
+          <input type = "date" name = "hPVM" id = "huoltoPVM">
+          <p><p>  
+
         <input type = "submit" value = "Kantaan" id="laheta">
 
     </form>

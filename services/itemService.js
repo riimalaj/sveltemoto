@@ -3,10 +3,10 @@ import {client} from "../database/db.js";
 //const databaseUrl = Deno.env.get("DATABASE_URL");
 
 
-const huoltoKantaan = async(tyyppi, huolto, hetki, sijainti, huomiot) => {
+const huoltoKantaan = async(tyyppi, huolto, hetki, sijainti, huomiot, huoltopvm) => {
     console.log('Syötetään huolto');
     await client.connect();
-    await client.queryArray('INSERT INTO motoService (moto, maint, moment, location, notes) VALUES($1, $2, $3, $4, $5)', tyyppi, huolto, hetki, sijainti, huomiot);
+    await client.queryArray('INSERT INTO motoService (moto, maint, moment, location, notes, maintdate) VALUES($1, $2, $3, $4, $5, $6)', tyyppi, huolto, hetki, sijainti, huomiot, huoltopvm);
     await client.end();
     await huolot();
 }
