@@ -38,6 +38,8 @@ input{
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2.625)  {
     form {
+    margin-left:1px;
+    margin-right:1px;
     margin-top: 100px;
     margin-bottom:100px;
         width:100%;
@@ -51,10 +53,11 @@ input{
         font-size:60px;    
     }
 
-    input#huomiot{
+    input#back{
       width:40%;
       font-weigth:bold;
       font-size:26px;
+      text-align: center;
   }
 
     input#huomiot{

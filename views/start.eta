@@ -27,7 +27,7 @@
           <p><p>
 
           <label for="hPVM"><b>Date</b></label><p>
-          <input type = "datetime-local" name = "hPVM" id = "huoltoPVM" value = ""/>
+          <input type = "date" name = "hPVM" id = "huoltoPVM" valueAsDate/>
           <p><p>  
 
         <input type = "submit" value = "Kantaan" id="laheta">

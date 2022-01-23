@@ -33,7 +33,7 @@ const lisaaHuolto = async ({ request, response }) => {
         var hetki = formData.get("hetki");
         var sijainti = formData.get("sijainti");
         var huomiot = formData.get("huomiot");
-        var huoltopvm = formData.get("hPVM");
+        let huoltopvm = formData.get("hPVM");
         console.log("huoltopvm ", huoltopvm)
         await itemServices.huoltoKantaan(tyyppi, huolto, hetki, sijainti, huomiot, huoltopvm);
         response.redirect('/huolot');
