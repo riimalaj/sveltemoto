@@ -19,7 +19,7 @@
         <p><p>
 
         <label for="sijaint"><b>Sijainti</b></label><p>
-          <input type = "text" name = "sijainti" value = "Tuusula">
+          <input type = "text" name = "sijainti" value = "Tuusula" id="s">
         <p><p>
 
         <label for="huomiot"><b>Huomiot</b></label><p>
@@ -27,7 +27,7 @@
           <p><p>
 
           <label for="hPVM"><b>Date</b></label><p>
-          <input type = "date" name = "hPVM" id = "huoltoPVM">
+          <input type = "datetime-local" name = "hPVM" id = "huoltoPVM" value = ""/>
           <p><p>  
 
         <input type = "submit" value = "Kantaan" id="laheta">
@@ -41,3 +41,6 @@
 </form>  
 
 
+<script>
+const event = new Date();
+document.getElementById('huoltoPVM').valueAsDate = event.toISOString();</script>
