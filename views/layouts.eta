@@ -66,12 +66,12 @@ input{
 
 
     input#mototyyppi, #huolto{
-    width:80%;
+    width:90%;
   }
 
 
     input#huomiot{
-    width:100%;
+    width:95%;
   }
 
     input#huoltoPVM{
