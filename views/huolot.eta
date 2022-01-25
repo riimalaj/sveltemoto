@@ -2,20 +2,22 @@
 
 <form action = "/" method = "get">
     <input type = "submit" value = "takaisin" id="back">
-</form> 
+</form>
 
+<div id = "huollot">
 <h3>Motojen</a> Huollot</h3>
 
 <table>
     <th>
-        <tr>    
+        <tr>
             <th>Huoltokohde</th> <th>Huolto</th><th>Paikka</th> <th>Huolto pvm</th><th>Huomiot</th>
-        </tr>    
+        </tr>
 
 <% it.huolot.forEach((i) =>{%>
-    
-    <tr>    
+
+    <tr>
         <td><%= i[1] %></td> <td><%= i[2] %></td> <td><%= i[4] %></td> <td><%= i[7] %></td> <td><%= i[5] %></td>
     </tr>
 <%}); %>
 </table>
+</div>

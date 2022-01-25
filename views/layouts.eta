@@ -111,7 +111,7 @@ input{
         font-size:80px;
     }
 
-table{
+div#huollot{
     margin-left:1px;
     margin-right:1px;
     margin-top: 100px;
