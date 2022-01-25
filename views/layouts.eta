@@ -55,15 +55,29 @@ input{
 
     input#back{
       width:40%;
-      font-weigth:bold;
+      font-weight:bold;
       font-size:26px;
       text-align: center;
   }
 
+    input#hetki{
+    width:20%;
+  }
+
+
+    input#mototyyppi, #huolto{
+    width:80%;
+  }
+
+
+    input#huomiot{
+    width:100%;
+  }
+
     input#huoltoPVM{
     margin-bottom: 20px;
-    width:90%;
   }
+
 
     #laheta{
       margin-top:20px;

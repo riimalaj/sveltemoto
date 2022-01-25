@@ -4,21 +4,21 @@
 
 
 <span><%it%></span>
-    
+
     <form action = "/huolot" method = "post" name ="startForm" class="formi">
         <label for="mototyyppi"><b>Moto</b></label><p>
-          <input type = "text" name = "mototyyppi" value="Kawasaki KX 250F (2008)">
+          <input type = "text" id = "mototyyppi" value="Kawasaki KX 250F (2008)">
         <p><p>
 
         <label for="huolto"><b>Huolto</b></label><p>
-          <input type = "text" name = "huolto" value = "Pikahuolto">        
+          <input type = "text" id = "huolto" value = "Pikahuolto">
           <p><p>
 
         <label for="hetki"><b>KM / tunti</b></label><p>
-          <input type = "number" name = "hetki" value = "0">
+          <input type = "number" name = "hetki" id = "hetki" value = "0">
         <p><p>
 
-        <label for="sijaint"><b>Sijainti</b></label><p>
+        <label for="sijainti"><b>Sijainti</b></label><p>
           <input type = "text" name = "sijainti" value = "Tuusula" id="s">
         <p><p>
 
@@ -38,7 +38,7 @@
 
 <form method = "get" action = "/huolot">
   <input type = "submit" value = "Näytä huolot" id = "naytaHuolot">
-</form>  
+</form>
 
 
 <script>
