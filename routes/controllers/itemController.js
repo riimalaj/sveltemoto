@@ -8,12 +8,9 @@ import { readLines } from "https://deno.land/std/io/mod.ts";
 import * as path from "https://deno.land/std/path/mod.ts";
 import { readline } from "https://deno.land/x/readline@v1.1.0/mod.ts";
 
-
 var temp = format(new Date(), "yyyy-MM-dd HH:mm:ss");
 var tDate = temp.replace(" ", "_").replace(":", "");
 console.log("Dataa tiedostoon logs/appi_logs_" + tDate + ".log");
-
-
 
 var log = [];
 
@@ -22,42 +19,42 @@ const showMain = async ({ response }) => {
     response.body = await renderFile('../views/start.eta');
 }
 
-
 const lisaaHuolto = async ({ request, response }) => {
     try {
         console.log("Huolon lisäys");
         const body = request.body();
         const formData = await body.value;
-        const tyyppi = formData.get("mototyyppi").trim();
-        const huolto = formData.get("huolto").trim();
-        var hetki = formData.get("hetki");
-        var sijainti = formData.get("sijainti");
-        var huomiot = formData.get("huomiot");
-        let huoltopvm = formData.get("hPVM");
-        console.log("huoltopvm " + huoltopvm);
-        await itemServices.huoltoKantaan(tyyppi, huolto, hetki, sijainti, huomiot, huoltopvm);
+        const tyyppi = formData.get("mototyyppi");
+        const huolto = formData.get("huolto");
+        const hetki = formData.get("hetki");
+        const sijainti = formData.get("sijainti");
+        const huomiot = formData.get("huomiot");
+        const huoltopvm = formData.get("hPVM");
+
+        let lisaysStr = new Date() + ": Huolto lisätty seuraavilla parametreillä: " + tyyppi + ", " + huolto + ", " + hetki + ", " + sijainti + ", " + huomiot + ", " + huoltopvm;
+        log.push(lisaysStr);
+        loggaus(log);
+
+        if (tyyppi != "" && huolto != "" && hetki != "" &&
+            sijainti != "" && huomiot != "" && huoltopvm != "") {
+            await itemServices.huoltoKantaan(tyyppi, huolto, hetki, sijainti, huomiot, huoltopvm);
+        }
         response.redirect('/huolot');
-        
-        const note = new Date() + " huolto lisätty.";
-        log.push(note);
-        console.log("notena -> " + note);
-        loggaus(note);
-        
     }
     catch (err) {
-        console.log("Error when trying to input data from controller");
-        const note = new Date() + "_error: " + err;
-        log.push(note);
-        loggaus();
+        console.log("Controller error, ", err);
+        const errorNote = new Date() + "_error: " + err;
+        log.push(errorNote);
+        loggaus(log);
+
     }
 };
 
 const haeHuolot = async ({ response }) => {
     response.body = await renderFile("../views/huolot.eta", {
-        huolot: await itemServices.huolot(),        
+        huolot: await itemServices.huolot(),
     });
 };
-
 
 const showLogFile = async ({ response }) => {
     console.log("itemController, showLogFile")
@@ -81,28 +78,21 @@ const showLogFileNotWorking = async ({ response }) => {
     f.close();
 }
 
-
-const loggaus = async (note) => {
-    console.log("loggaus funktioata kutsuttu")
+const loggaus = async (log) => {
+    console.log("loggaus funktioata kutsuttu");
     ensureDir("./logs")
         .then(() => {
 
             let location = "./logs/appi_logs.log";
-            Deno.writeTextFile(location, note + "\n\n", { "append": true });
-            /*
+
             for (let i of log) {
                 console.log(i);
                 Deno.writeTextFile(location, i + "\n\n", { "append": true });
             }
-            */
-
-        });    
+        });
 }
 
-
-
-
-export { showMain, haeHuolot, lisaaHuolto, showLogFile };
+export { showMain, haeHuolot, lisaaHuolto, showLogFile, loggaus };
 
 
 
