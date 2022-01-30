@@ -1,0 +1,10 @@
+import { Router } from "../deps.js";
+import * as item from "./apis/itemController.js";
+
+const router = new Router();
+
+console.log("Code in router.js")
+router.get("/huolot", item.haeHuolot);
+router.post("/lisaahuolto", item.addHuolto);
+
+export default router.routes();

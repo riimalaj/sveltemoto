@@ -1,6 +1,16 @@
-import {client} from "../database/db.js";
+import {executeQuery} from "../database/database.js";
 
 //const databaseUrl = Deno.env.get("DATABASE_URL");
+
+const create = async (moto) => {
+    console.log("create");
+    const res = await executeQuery(
+      `INSERT INTO motoService (moto) VALUES ($1)`,
+    moto
+    );
+
+    return res.rows;
+  };
 
 
 const huoltoKantaan = async(tyyppi, huolto, hetki, sijainti, huomiot, huoltopvm) => {
@@ -27,4 +37,4 @@ const huolot = async () => {
     return res.rows;
 }
 
-export {huoltoKantaan, huolot};
+export {huoltoKantaan, huolot, create};

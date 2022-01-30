@@ -1,0 +1,14 @@
+body{
+    margin: auto;
+    color: red;
+}
+h3 {
+    color:blueviolet;
+}
+
+input, button{
+    margin-top: 200px;
+    margin:0 auto;
+    font-size:26px;
+    font-weight:bold;
+}

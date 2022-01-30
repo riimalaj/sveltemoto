@@ -1,0 +1,46 @@
+version: "3.4"
+
+services:
+  api:
+    build: api
+    image: api
+    restart: unless-stopped
+    volumes:
+      - ./api:/app
+    ports:
+      - 4000:4000
+    depends_on:
+      - database
+    env_file:
+      - database.env
+
+  motoserv:
+    build: motoserv
+    image: motoserv
+    restart: unless-stopped
+    volumes:
+      - ./motoserv:/app
+    ports:
+      - 3000:3000
+    depends_on:
+      - database
+    env_file:
+      - database.env
+
+  database:
+    container_name: "motodb"
+    image: "postgres:13.4"
+    restart: unless-stopped
+    env_file:
+        - database.env
+
+  flyway:
+    image: flyway/flyway:7.3.0-alpine
+    env_file:
+      - database.env
+    depends_on:
+      - database
+    volumes:
+      - .:/flyway/sql
+    command: -connectRetries=60 -baselineOnMigrate=true migrate
+

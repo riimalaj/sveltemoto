@@ -19,6 +19,16 @@ const showMain = async ({ response }) => {
     response.body = await renderFile('../views/start.eta');
 }
 
+
+const addHuolto = async({ request, response }) =>{
+    console.log("addHuollossa ollaan");
+    const body = request.body({ type: "json" });
+    const value = await body.value;
+    const huolto = value.lHuolto;
+    await todoService.create(huolto);
+    response.status = 200;
+}
+
 const lisaaHuolto = async ({ request, response }) => {
     try {
         console.log("Huolon lisäys");
@@ -50,10 +60,9 @@ const lisaaHuolto = async ({ request, response }) => {
     }
 };
 
-const haeHuolot = async ({ response }) => {
-    response.body = await renderFile("../views/huolot.eta", {
-        huolot: await itemServices.huolot(),
-    });
+
+const haeHuolot = async ({ request, response }) => {
+        response.body = await itemServices.huolot();
 };
 
 const showLogFile = async ({ response }) => {
@@ -92,7 +101,7 @@ const loggaus = async (log) => {
         });
 }
 
-export { showMain, haeHuolot, lisaaHuolto, showLogFile, loggaus };
+export { showMain, haeHuolot, lisaaHuolto, showLogFile, loggaus, addHuolto };
 
 
 
