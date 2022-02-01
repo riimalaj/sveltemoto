@@ -1,5 +1,0 @@
-<% layout("./layouts.eta") %>
-
-<h3>Toimitetut</h3>
-
-

@@ -1,8 +1,0 @@
-<% layout("./layouts.eta") %>
-
-<% console.log("index.eta (response from the itemController -> " + it.deleteResp) %>
-<% console.log("index.eta (response from the itemController -> " + it.deleteResp) %>
-
-<h3><%= it.deleteResp %></h3>
-
-
