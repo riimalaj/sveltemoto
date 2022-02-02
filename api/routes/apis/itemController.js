@@ -1,8 +1,6 @@
-import { Context } from 'https://deno.land/x/oak@v9.0.1/mod.ts';
 import * as service from "../../services/itemService.js";
 import { ensureDir, ensureFile, ensureFileSync } from "https://deno.land/std/fs/mod.ts";
 import { format } from "https://deno.land/std@0.91.0/datetime/mod.ts";
-import { readline } from "https://deno.land/x/readline@v1.1.0/mod.ts";
 
 var temp = format(new Date(), "yyyy-MM-dd HH:mm:ss");
 var tDate = temp.replace(" ", "_").replace(":", "");
@@ -10,20 +8,22 @@ console.log("Dataa tiedostoon logs/appi_logs_" + tDate + ".log");
 
 var log = [];
 
-const addHuolto = async({ request, response }) =>{
+const addHuolto = async({ request, response }) => {
     console.log("addHuollossa ollaan");
     const body = request.body({ type: "json" });
     const value = await body.value;
     const huolto = value.lHuolto;
+    console.log("Calling create(huolto)");
     await service.create(huolto);
     response.status = 200;
 }
 
 const haeHuolot = async ({ request, response }) => {
-        response.body = await service.huolot();
+    console.log("itemController, haeHuolot");
+    response.body = await service.huolot();
 };
 
-const loggaus = async (log) => {
+const loggaus = (log) => {
     console.log("loggaus funktioata kutsuttu");
     ensureDir("./logs")
         .then(() => {

@@ -1,6 +1,8 @@
 import { Router } from "../deps.js";
 import * as item from "./apis/itemController.js";
 
+debugger;
+
 const router = new Router();
 
 console.log("Code in router.js")
