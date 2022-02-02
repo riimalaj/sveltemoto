@@ -1,11 +1,11 @@
 <script>
   let serverName = "localhost";
   const lisaaHuolto = async () => {
-    const lHuolto = document.getElementById("mototyyppi").value;
-    console.log("lHuolto: ", lHuolto);
+    const moto = document.getElementById("mototyyppi").value;
+    console.log("lHuolto: ", moto);
 
     const data = {
-      huolto: lHuolto,
+      huolto: moto,
     };
 
     await fetch(`http://${serverName}:5000/lisaahuolto`, {

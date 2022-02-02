@@ -5,10 +5,10 @@
     }
 
     const controllerMoi = async () => {
-        `http://localhost:5000/`, {
+        fetch(`http://localhost:5000/`, {
       method: "POST",
       body: JSON.stringify(data),
-    };
+    });
     }
 </script>
 

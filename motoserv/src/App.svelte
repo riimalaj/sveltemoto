@@ -6,4 +6,6 @@ import JuuriTarkistus from "@/components/JuuriTarkistus.svelte";
 
 <main>
   <JuuriTarkistus />  
+  <Lisaa />
+  <Huolot />
 </main>

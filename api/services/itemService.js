@@ -1,19 +1,29 @@
 import {executeQuery} from "../database/database.js";
+//import { Client } from "https://deno.land/x/postgres@v0.14.3/mod.ts";
 
-const create = async (moto) => {
-    console.log("create");
+//const client = new Client();
+
+const create = async (moto, huolto, paikka, notet, tehty) => {
+    console.log("itemService, create. Parametrit:", moto + ", " + huolto + ", " + paikka + ", " + notet + ", " + tehty)
+    //await client.connect();    
     const res = await executeQuery(
-      `INSERT INTO motoService (moto) VALUES ($1)`,
-    moto
+      `INSERT INTO huoltorekisteri (moto, huolto, paikka, notet, tehty) VALUES ($1, $2, $3, $4, $5)`,
+    moto, huolto, paikka, notet, tehty
     );
-
+    //await client.end();
     return res.rows;
   };
 
 const huolot = async () => {
     console.log("Huoltojen haku");    
-    const res = await executeQuery('SELECT * from motoService ORDER BY maintdate ASC');    
+    //await client.connect();
+    const res = await executeQuery('SELECT * from huoltorekisteri ORDER BY luotu ASC');    
     console.log("Huolot -> " + res.rows);
+    if ( res.rows === "" ){
+      console.log("Ei huoltoja");
+      //res.rows[0] = "empty table";
+    }
+    //await client.end();
     return res.rows;
 }
 

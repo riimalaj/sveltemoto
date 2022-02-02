@@ -13,7 +13,6 @@ services:
       - database
     env_file:
       - database.env
-
   motoserv:
     build: motoserv
     image: motoserv
@@ -28,7 +27,7 @@ services:
       - database.env
 
   database:
-    container_name: "motodb"
+    container_name: "motari"
     image: "postgres:13.4"
     restart: unless-stopped
     env_file:

@@ -5,8 +5,10 @@ const haeHuolot = async () => {
     console.log("haeHuolot");
     let str = `http://${serverName}:5000/huolot`;
     console.log("server.. ", str);
-    let huolot = await fetch(str);
-    return huolot.json();
+    let huolot = await fetch(str,{
+      method: "GET"
+    });
+    return huolot.json();    
 };
 let services = haeHuolot();
 let listaus = "Tehdyt huolot";

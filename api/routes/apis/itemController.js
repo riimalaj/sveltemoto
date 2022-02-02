@@ -4,22 +4,30 @@ import { format } from "https://deno.land/std@0.91.0/datetime/mod.ts";
 
 var temp = format(new Date(), "yyyy-MM-dd HH:mm:ss");
 var tDate = temp.replace(" ", "_").replace(":", "");
-console.log("Dataa tiedostoon logs/appi_logs_" + tDate + ".log");
+//console.log("Dataa tiedostoon logs/appi_logs_" + tDate + ".log");
 
 var log = [];
 
-const juuri = async() => {
-    console.log("Hello dude, controlleri tässä");
-    alert("Hello to you Sir, you have now reached controller");
+const juuri = ({ response }) => {
+    console.log("itemController, juuri");
+    response.status = 200;
+    response.body = { "ok": "ok" };
 }
 
-const addHuolto = async({ request, response }) => {
+const addHuolto = async ({ request, response }) => {
     console.log("addHuollossa ollaan");
     const body = request.body({ type: "json" });
-    const value = await body.value;
-    const huolto = value.lHuolto;
-    console.log("Calling create(huolto)");
-    await service.create(huolto);
+    console.log("body: ", body)
+    const value = await body.value
+    const moto = value.huolto;
+    console.log("const moto: ", moto);
+    if (moto != "") {
+        console.log("Huolto parametrissa dataa");
+        await service.create(moto, "test", "test","test", false);
+    }
+    else{
+        console.log("Parametrissa ei dataa");
+    }
     response.status = 200;
 }
 

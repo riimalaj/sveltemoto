@@ -4,4 +4,4 @@ EXPOSE 5000
 
 WORKDIR /app
 
-CMD [ "run", "--unstable", "--watch", "--allow-net", "--allow-read", "--allow-env", "app-launch.js" ]
+CMD ["run", "--unstable", "--watch", "--allow-net", "--allow-read", "--allow-env", "--allow-write", "app-launch.js" ]

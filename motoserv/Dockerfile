@@ -12,4 +12,4 @@ RUN mkdir /root/.deno
 
 RUN mkdir /root/.deno/trex_storage
 
-CMD [ "/usr/local/bin/trex", "run", "start" ]
+CMD ["/usr/local/bin/trex","run", "start" ]

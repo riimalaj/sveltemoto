@@ -6,7 +6,7 @@ debugger;
 const router = new Router();
 
 console.log("Code in router.js")
-router.get("/", item.juuri);
+router.post("/", item.juuri);
 router.get("/huolot", item.haeHuolot);
 router.post("/lisaahuolto", item.addHuolto);
 
