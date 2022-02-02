@@ -8,7 +8,7 @@
       huolto: lHuolto,
     };
 
-    await fetch(`http://${serverName}:4000/lisaahuolto`, {
+    await fetch(`http://${serverName}:5000/lisaahuolto`, {
       method: "POST",
       body: JSON.stringify(data),
     });

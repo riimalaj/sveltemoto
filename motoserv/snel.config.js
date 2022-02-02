@@ -1,5 +1,5 @@
 export default {
-  port: 3000,
+  port: 2000,
   mode: "dom",
   plugins: [],
   extendsImportMap: [],

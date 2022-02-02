@@ -3,7 +3,7 @@ let serverName = "localhost";
 
 const haeHuolot = async () => {
     console.log("haeHuolot");
-    let str = `http://${serverName}:4000/huolot`;
+    let str = `http://${serverName}:5000/huolot`;
     console.log("server.. ", str);
     let huolot = await fetch(str);
     return huolot.json();

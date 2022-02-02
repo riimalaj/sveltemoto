@@ -1,4 +1,4 @@
-import {executeQuery} from "../database/database1.js";
+import {executeQuery} from "../database/database.js";
 
 const create = async (moto) => {
     console.log("create");

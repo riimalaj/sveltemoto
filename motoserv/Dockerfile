@@ -1,6 +1,6 @@
 FROM denoland/deno:debian-1.18.0
 
-EXPOSE 3000 3001 3002
+EXPOSE 2000 2001 2002
 
 ADD . /app
 

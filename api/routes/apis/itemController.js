@@ -8,6 +8,11 @@ console.log("Dataa tiedostoon logs/appi_logs_" + tDate + ".log");
 
 var log = [];
 
+const juuri = async() => {
+    console.log("Hello dude, controlleri tässä");
+    alert("Hello to you Sir, you have now reached controller");
+}
+
 const addHuolto = async({ request, response }) => {
     console.log("addHuollossa ollaan");
     const body = request.body({ type: "json" });
@@ -35,7 +40,7 @@ const loggaus = (log) => {
         });
 }
 
-export { addHuolto, haeHuolot, loggaus };
+export { juuri, addHuolto, haeHuolot, loggaus };
 
 
 
