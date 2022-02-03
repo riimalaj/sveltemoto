@@ -36,9 +36,10 @@ let listaus = "Tehdyt huolot";
 
   <table>
     <tr>
-      <th>PVM</th><th>Kohde</th><th>Huolto</th><th>Paikka</th><th>Huomiot</th><th>Tehty</th>
+      <th>ID</th><th>PVM</th><th>Kohde</th><th>Huolto</th><th>Paikka</th><th>Huomiot</th><th>Tehty</th>
     </tr>
   <tr>
+    <td>{item.id}</td>
     <td>
       {item.luotu}      
     </td>

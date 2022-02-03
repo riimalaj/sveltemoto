@@ -9,5 +9,6 @@ console.log("Code in router.js")
 router.post("/", item.juuri);
 router.get("/huolot", item.haeHuolot);
 router.post("/lisaahuolto", item.addHuolto);
+router.post("/tuhoa/:id", item.poistaRivi);
 
 export default router.routes();

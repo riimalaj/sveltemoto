@@ -27,4 +27,9 @@ const huolot = async () => {
     return res.rows;
 }
 
-export {huolot, create};
+const poistaRivi = async (tuhottavaRivi) => {
+  const nroRows = await executeQuery("DELETE FROM huoltorekisteri WHERE id = ($1)", tuhottavaRivi);
+  return nroRows;
+}
+
+export {huolot, create, poistaRivi};

@@ -41,6 +41,15 @@ const haeHuolot = async ({ request, response }) => {
     response.body = await service.huolot();
 };
 
+
+const poistaRivi = async({request, params, response}) => {
+    console.log("Recordin ", params.id + " poisto");
+    const tuhotutRecordit = await service.poistaRivi(params.id);
+    response.body= tuhotutRecordit + " recordi tuhottu";
+    console.log(tuhotutRecordit +  " recordi tuhottu");
+}
+
+
 const loggaus = (log) => {
     console.log("loggaus funktioata kutsuttu");
     ensureDir("./logs")
@@ -53,7 +62,7 @@ const loggaus = (log) => {
         });
 }
 
-export { juuri, addHuolto, haeHuolot, loggaus };
+export { juuri, addHuolto, haeHuolot, poistaRivi, loggaus };
 
 
 

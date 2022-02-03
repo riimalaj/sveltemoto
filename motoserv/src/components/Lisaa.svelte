@@ -1,6 +1,7 @@
 <script> 
   let serverName = "localhost";
   const lisaaHuolto = async () => {
+    const luotu = document.getElementById("pvm").value; 
     const moto = document.getElementById("mototyyppi").value;
     const huolto = document.getElementById("huolto").value;
     const paikka = document.getElementById("paikka").value;
@@ -9,6 +10,7 @@
     console.log(moto + ", " + huolto);
     
     const data = {
+      luotu: luotu,
       moto: moto,
       huolto: huolto,
       paikka: paikka,
@@ -25,6 +27,8 @@
 
 <h3>Raportoi huolto</h3>
 
+<input type="date" id="pvm" required />
+<p></p>
 <input type="text" id="mototyyppi" value="Kawasaki KX 250F (2008)" required />
 <p></p>
 <input type="text" id="huolto" value="Pikahuolto" required />
