@@ -11,6 +11,7 @@ app.use(async (context, next) => {
 
 app.use(oakCors());
 app.use(middleware.errorMiddleware);
+app.use(middleware.time);
 app.use(routes);
 
 export { app };

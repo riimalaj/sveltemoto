@@ -18,7 +18,7 @@ const huolot = async () => {
     console.log("Huoltojen haku");    
     //await client.connect();
     const res = await executeQuery('SELECT * from huoltorekisteri ORDER BY luotu ASC');    
-    console.log("Huolot -> " + res.rows);
+    console.log(res);
     if ( res.rows === "" ){
       console.log("Ei huoltoja");
       //res.rows[0] = "empty table";

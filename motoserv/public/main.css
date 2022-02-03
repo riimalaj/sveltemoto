@@ -11,7 +11,7 @@
 }
 
 table, td {
-  border: 1px solid black;
+  border: 2px solid black;
   text-align:left;
   background-color: #F1EBEA;
   padding:3px;
@@ -114,3 +114,4 @@ div#huollot{
     height: 100%;
 }
 
+}

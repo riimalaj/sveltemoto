@@ -8,4 +8,12 @@ const errorMiddleware = async (context, next) => {
     }
   };
 
-  export { errorMiddleware };
+const time = async(context, next) => {
+  const start = Date.now();
+  console.log("Execution started: ", start);
+  await next();
+  const end = Date.now() - start;
+  console.log("Execution ended: ", end);
+} 
+
+  export { errorMiddleware, time };

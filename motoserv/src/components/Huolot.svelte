@@ -14,15 +14,47 @@ let services = haeHuolot();
 let listaus = "Tehdyt huolot";
 </script>
 
+<style>
+  table, td {
+    border: 2px solid black;
+    text-align:left;
+    background-color: #F1EBEA;
+    padding:3px;
+  }
+  th{
+      background-color: lightgray;
+  }
+</style>
+
+
 <button on:click ={haeHuolot}>Hae huolot</button>
 <h3>{listaus}</h3>
 
 {#await services then items}
 <ul>
   {#each items as item}
-  <li>
-    {item.moto}
-  </li>
+
+  <table>
+    <tr>
+      <th>PVM</th><th>Kohde</th><th>Huolto</th><th>Paikka</th><th>Huomiot</th><th>Tehty</th>
+    </tr>
+  <tr>
+    <td>
+      {item.luotu}      
+    </td>
+    <td>{item.moto}</td>
+    <td>{item.huolto}</td>
+    <td>{item.paikka}</td>
+    <td>{item.notet}</td>
+    <td>
+      {#if item.tehty}      
+        {item.tehty = "Hoidettu"}
+      {:else } 
+        {item.tehty} = "Ei"
+      {/if}
+    </td>
+  </tr>
+</table>
   {/each}
 </ul>
 {/await}
