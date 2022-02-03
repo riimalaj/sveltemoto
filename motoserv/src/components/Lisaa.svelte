@@ -23,14 +23,16 @@
   };
 </script>
 
+<h3>Raportoi huolto</h3>
+
 <input type="text" id="mototyyppi" value="Kawasaki KX 250F (2008)" required />
-
+<p></p>
 <input type="text" id="huolto" value="Pikahuolto" required />
-
+<p></p>
 <input type="text" id="paikka" value="Tuusula" required />
-
+<p></p>
 <input type = "text" id = "notet" value ="Notet" required />
-
+<p></p>
 <input type="checkbox" id="tehty" />
-
+<p></p>
 <button on:click={lisaaHuolto}>Lisaa huolto</button>
