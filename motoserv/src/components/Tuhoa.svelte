@@ -1,12 +1,16 @@
 <script>
     let serverName = "localhost";
+    
     const tuhoa = async() => {
     const id = document.getElementById('kuolema').value;
     console.log("tuhottavaRivi: ", id);
     await fetch(`http://${serverName}:5000/tuhoa/${id}`, {
       method: "POST"
     });
+    
+    location.reload();
 }
+
 </script>
 
 <style>
