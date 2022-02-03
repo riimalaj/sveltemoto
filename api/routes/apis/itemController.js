@@ -18,16 +18,21 @@ const addHuolto = async ({ request, response }) => {
     console.log("addHuollossa ollaan");
     const body = request.body({ type: "json" });
     console.log("body: ", body)
-    const value = await body.value
-    const moto = value.huolto;
-    console.log("const moto: ", moto);
+    const value = await body.value    
+    const moto = value.moto;    
+    const huolto = value.huolto;
+    const paikka = value.paikka;
+    const notet = value.notet;
+    const tehty = value.tehty;    
+    
     if (moto != "") {
         console.log("Huolto parametrissa dataa");
-        await service.create(moto, "test", "test","test", false);
+        await service.create(moto, huolto, paikka,notet, tehty);
     }
     else{
         console.log("Parametrissa ei dataa");
     }
+    
     response.status = 200;
 }
 
