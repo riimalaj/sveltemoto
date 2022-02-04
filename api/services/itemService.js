@@ -32,4 +32,10 @@ const poistaRivi = async (tuhottavaRivi) => {
   return nroRows;
 }
 
-export {huolot, create, poistaRivi};
+const poistaKaikkiRecordit = async () => {
+  const nroRows = await executeQuery("DELETE FROM huoltorekisteri");
+  return nroRows;
+}
+
+
+export {huolot, create, poistaRivi, poistaKaikkiRecordit};

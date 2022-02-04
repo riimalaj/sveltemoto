@@ -11,7 +11,7 @@ const haeHuolot = async () => {
     return huolot.json();    
 };
 let services = haeHuolot();
-let listaus = "Tehdyt huolot";
+let listaus = "Huolot";
 </script>
 
 <style>
@@ -36,7 +36,7 @@ let listaus = "Tehdyt huolot";
 
     <table>
       <tr>
-        <th>ID</th><th>PVM</th><th>Kohde</th><th>Huolto</th><th>Paikka</th><th>Huomiot</th><th>Tehty</th>
+        <th>ID</th><th>PVM</th><th>Kohde</th><th>Huolto</th><th>Paikka</th><th>Huomiot</th><!--<th>Tehty</th>-->
       </tr>
     <tr>
       <td>{item.id}</td>
@@ -47,13 +47,13 @@ let listaus = "Tehdyt huolot";
       <td>{item.huolto}</td>
       <td>{item.paikka}</td>
       <td>{item.notet}</td>
-      <td>
+      <!--<td>
         {#if item.tehty}      
           {item.tehty = "Hoidettu"}
         {:else } 
           {item.tehty} = "Ei"
         {/if}
-      </td>
+      </td>-->
     </tr>
   </table>
     {/each}

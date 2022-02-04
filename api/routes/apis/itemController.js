@@ -49,6 +49,13 @@ const poistaRivi = async({request, params, response}) => {
     console.log(tuhotutRecordit +  " recordi tuhottu");
 }
 
+const poistaKaikki = async({response}) => {    
+    await service.poistaKaikkiRecordit();
+    response.status = 200;
+    response.body= "Recordit tuhottu";
+    console.log("Recordit tuhottu");
+}
+
 
 const loggaus = (log) => {
     console.log("loggaus funktioata kutsuttu");
@@ -62,7 +69,7 @@ const loggaus = (log) => {
         });
 }
 
-export { juuri, addHuolto, haeHuolot, poistaRivi, loggaus };
+export { juuri, addHuolto, haeHuolot, poistaRivi, poistaKaikki, loggaus };
 
 
 

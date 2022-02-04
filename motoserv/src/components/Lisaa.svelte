@@ -32,14 +32,23 @@
 </script>
 <ul>
   <h3>Raportoi huolto</h3>
+  <label>Huollon pvm
   <input type="date" id="pvm" required />
+  </label>
   <p />
+  <label for = "mototyyppi" >Moto
   <input type="text" id="mototyyppi" value="Kawasaki KX 250F (2008)" required />
+  </label>
   <p />
+  <label  for = "huolto">Huolto
   <input type="text" id="huolto" value="Pikahuolto" required />
+  </label>
   <p />
+  <label for = "paikka">Huolto paikka
   <input type="text" id="paikka" value="Tuusula" required />
+  </label>
   <p />
+  <label for = "notet">Huomiot</label>
   <textarea id = "notet" rows = {4} cols = {60}></textarea>
   <p />
   <!--<input type="checkbox" id="tehty" />

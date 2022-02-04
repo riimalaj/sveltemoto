@@ -11,6 +11,17 @@
     location.reload();
 }
 
+const tuhoakaikki = async() => {
+    const tK = document.getElementById('tosiKuolema').value;    
+    await fetch(`http://${serverName}:5000/tuhoa`, {
+      method: "POST"
+    });
+    
+    location.reload();
+}
+
+
+
 </script>
 
 <style>
@@ -23,4 +34,5 @@
     <p></p>
     <input type = "number" id = "kuolema" value="id" /> 
     <button on:click={tuhoa}>Poista rivi</button>
+    <button on:click={tuhoa}>Poista kaikki</button>
 </ul></ul>
