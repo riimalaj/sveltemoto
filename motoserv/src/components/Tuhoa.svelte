@@ -19,7 +19,8 @@
     }
 </style>
 
-
-<p></p>
-<input type = "number" id = "kuolema" value="id" /> 
-<button on:click={tuhoa}>Tuhoa</button>
+<ul><ul>
+    <p></p>
+    <input type = "number" id = "kuolema" value="id" /> 
+    <button on:click={tuhoa}>Poista rivi</button>
+</ul></ul>

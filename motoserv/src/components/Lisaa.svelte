@@ -9,7 +9,7 @@
     const huolto = document.getElementById("huolto").value;
     const paikka = document.getElementById("paikka").value;
     const notet = document.getElementById("notet").value;
-    const tehty = document.getElementById("tehty").value;
+    const tehty = false;//document.getElementById("tehty").value;
     console.log(moto + ", " + huolto);
 
     const data = {
@@ -28,20 +28,23 @@
 
     location.reload();
   };
+  
 </script>
+<ul>
+  <h3>Raportoi huolto</h3>
+  <input type="date" id="pvm" required />
+  <p />
+  <input type="text" id="mototyyppi" value="Kawasaki KX 250F (2008)" required />
+  <p />
+  <input type="text" id="huolto" value="Pikahuolto" required />
+  <p />
+  <input type="text" id="paikka" value="Tuusula" required />
+  <p />
+  <textarea id = "notet" rows = {4} cols = {60}></textarea>
+  <p />
+  <!--<input type="checkbox" id="tehty" />
+  <p />-->
 
-<h3>Raportoi huolto</h3>
-
-<input type="date" id="pvm" required />
-<p />
-<input type="text" id="mototyyppi" value="Kawasaki KX 250F (2008)" required />
-<p />
-<input type="text" id="huolto" value="Pikahuolto" required />
-<p />
-<input type="text" id="paikka" value="Tuusula" required />
-<p />
-<input type="text" id="notet" value="Notet" required />
-<p />
-<input type="checkbox" id="tehty" />
-<p />
-<button on:click={lisaaHuolto}>Lisaa huolto</button>
+  
+  <button on:click={lisaaHuolto}>Lisaa huolto</button>
+</ul>

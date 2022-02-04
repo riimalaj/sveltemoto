@@ -6,8 +6,7 @@
 
 </script>
 
-<main>
-  <JuuriTarkistus />  
+<main>  
   <Lisaa />
   <Huolot />
   <Tuhoa />

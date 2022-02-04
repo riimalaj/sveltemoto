@@ -26,37 +26,38 @@ let listaus = "Tehdyt huolot";
   }
 </style>
 
-
-<button on:click ={haeHuolot}>Hae huolot</button>
-<h3>{listaus}</h3>
-
-{#await services then items}
 <ul>
-  {#each items as item}
+  <!--<button on:click ={haeHuolot}>Hae huolot</button>-->
+  <h3>{listaus}</h3>
 
-  <table>
+  {#await services then items}
+  <ul>
+    {#each items as item}
+
+    <table>
+      <tr>
+        <th>ID</th><th>PVM</th><th>Kohde</th><th>Huolto</th><th>Paikka</th><th>Huomiot</th><th>Tehty</th>
+      </tr>
     <tr>
-      <th>ID</th><th>PVM</th><th>Kohde</th><th>Huolto</th><th>Paikka</th><th>Huomiot</th><th>Tehty</th>
+      <td>{item.id}</td>
+      <td>
+        {item.luotu}      
+      </td>
+      <td>{item.moto}</td>
+      <td>{item.huolto}</td>
+      <td>{item.paikka}</td>
+      <td>{item.notet}</td>
+      <td>
+        {#if item.tehty}      
+          {item.tehty = "Hoidettu"}
+        {:else } 
+          {item.tehty} = "Ei"
+        {/if}
+      </td>
     </tr>
-  <tr>
-    <td>{item.id}</td>
-    <td>
-      {item.luotu}      
-    </td>
-    <td>{item.moto}</td>
-    <td>{item.huolto}</td>
-    <td>{item.paikka}</td>
-    <td>{item.notet}</td>
-    <td>
-      {#if item.tehty}      
-        {item.tehty = "Hoidettu"}
-      {:else } 
-        {item.tehty} = "Ei"
-      {/if}
-    </td>
-  </tr>
-</table>
-  {/each}
+  </table>
+    {/each}
+  </ul>
+  {/await}
 </ul>
-{/await}
 
